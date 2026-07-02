@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://kf0cvuft61ib"]
+
+[ext_resource type="Script" uid="uid://b35egn0gjfv8g" path="res://src/scripts/collectible.gd" id="1_0swxi"]
+[ext_resource type="Texture2D" uid="uid://dbp6h57n8eixx" path="res://assets/img/spritesheet/All free tiles.png" id="1_lyw24"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0swxi"]
+atlas = ExtResource("1_lyw24")
+region = Rect2(142.44293, 205.90411, 17.539948, 20.95874)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lyw24"]
+radius = 5.6568546
+height = 16.0
+
+[node name="Collectible" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_0swxi")
+
+[node name="Collectible Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("AtlasTexture_0swxi")
+
+[node name="Pickup Area" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+rotation = 0.7853982
+shape = SubResource("CapsuleShape2D_lyw24")
