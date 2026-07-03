@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://4vqtyrbxi32s"]
+[gd_scene load_steps=4 format=3 uid="uid://4vqtyrbxi32s"]
 
+[ext_resource type="Script" uid="uid://b5qquvw15kre8" path="res://src/scenes/economy.gd" id="1_3rtjt"]
 [ext_resource type="PackedScene" uid="uid://kf0cvuft61ib" path="res://src/scenes/collectible.tscn" id="1_covw0"]
 [ext_resource type="PackedScene" uid="uid://gyn7g55md6gq" path="res://src/scenes/worker_bee.tscn" id="2_3rtjt"]
 
@@ -8,6 +9,10 @@ process_mode = 3
 
 [node name="Systems" type="Node" parent="."]
 process_mode = 1
+
+[node name="Economy" type="Node" parent="Systems"]
+unique_name_in_owner = true
+script = ExtResource("1_3rtjt")
 
 [node name="World" type="Node2D" parent="."]
 process_mode = 1
@@ -21,6 +26,7 @@ position = Vector2(439, 344)
 
 [node name="Collectible" parent="World/Entities" instance=ExtResource("1_covw0")]
 position = Vector2(528, 302)
+scale = Vector2(1.0225279, 1)
 
 [node name="Collectible2" parent="World/Entities" instance=ExtResource("1_covw0")]
 position = Vector2(595, 252)
