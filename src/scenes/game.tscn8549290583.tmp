@@ -22,21 +22,6 @@ position = Vector2(439, 344)
 [node name="Collectible" parent="World/Entities" instance=ExtResource("1_covw0")]
 position = Vector2(528, 302)
 
-[node name="Collectible2" parent="World/Entities" instance=ExtResource("1_covw0")]
-position = Vector2(595, 252)
-
-[node name="Collectible3" parent="World/Entities" instance=ExtResource("1_covw0")]
-position = Vector2(593, 185)
-
-[node name="Collectible4" parent="World/Entities" instance=ExtResource("1_covw0")]
-position = Vector2(468, 153)
-
-[node name="Collectible5" parent="World/Entities" instance=ExtResource("1_covw0")]
-position = Vector2(475, 231)
-
-[node name="Collectible6" parent="World/Entities" instance=ExtResource("1_covw0")]
-position = Vector2(329, 419)
-
 [node name="Effects" type="Node2D" parent="World"]
 
 [node name="UILayer" type="CanvasLayer" parent="."]
