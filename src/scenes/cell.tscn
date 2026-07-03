@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dscsnp8cieu3t"]
+
+[ext_resource type="Texture2D" uid="uid://meu03lp5eolp" path="res://assets/img/cell/cell_sprite.png" id="1_kgu0s"]
+
+[node name="Cell" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_kgu0s")

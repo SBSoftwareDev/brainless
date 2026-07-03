@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://4vqtyrbxi32s"]
+[gd_scene load_steps=5 format=3 uid="uid://4vqtyrbxi32s"]
 
 [ext_resource type="Script" uid="uid://b5qquvw15kre8" path="res://src/scenes/economy.gd" id="1_3rtjt"]
-[ext_resource type="PackedScene" uid="uid://kf0cvuft61ib" path="res://src/scenes/collectible.tscn" id="1_covw0"]
-[ext_resource type="PackedScene" uid="uid://gyn7g55md6gq" path="res://src/scenes/worker_bee.tscn" id="2_3rtjt"]
+[ext_resource type="PackedScene" path="res://src/scenes/collectible.tscn" id="1_covw0"]
+[ext_resource type="PackedScene" path="res://src/scenes/worker_bee.tscn" id="2_3rtjt"]
+[ext_resource type="PackedScene" uid="uid://dscsnp8cieu3t" path="res://src/scenes/cell.tscn" id="4_yufto"]
 
 [node name="Game" type="Node"]
 process_mode = 3
@@ -42,6 +43,15 @@ position = Vector2(475, 231)
 
 [node name="Collectible6" parent="World/Entities" instance=ExtResource("1_covw0")]
 position = Vector2(329, 419)
+
+[node name="Cell" parent="World/Entities" instance=ExtResource("4_yufto")]
+position = Vector2(324, 180)
+
+[node name="Cell2" parent="World/Entities" instance=ExtResource("4_yufto")]
+position = Vector2(245, 228)
+
+[node name="Cell3" parent="World/Entities" instance=ExtResource("4_yufto")]
+position = Vector2(252, 296)
 
 [node name="Effects" type="Node2D" parent="World"]
 
