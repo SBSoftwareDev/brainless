@@ -1,7 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dscsnp8cieu3t"]
+[gd_scene load_steps=3 format=3 uid="uid://dscsnp8cieu3t"]
 
 [ext_resource type="Texture2D" uid="uid://meu03lp5eolp" path="res://assets/img/cell/cell_sprite.png" id="1_kgu0s"]
+[ext_resource type="Script" uid="uid://byasji5xf1ypu" path="res://src/scenes/cell.gd" id="2_3aesr"]
 
 [node name="Cell" type="Sprite2D"]
 texture_filter = 1
 texture = ExtResource("1_kgu0s")
+script = ExtResource("2_3aesr")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-9, -10, -5, -15, 5, -15, 15, -2, 15, 2, 5, 15, -5, 15, -10, 10, -13, 7, -15, 2, -15, -2)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

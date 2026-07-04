@@ -7,7 +7,6 @@ var movement_direction :bool = true
 
 @onready var cell: Sprite2D = $"../Cell"
 @onready var collectible_cooldown: Timer = $CollectibleCooldown
-@onready var cell_cooldown: Timer = $CellCooldown
 @onready var collectible: CharacterBody2D = $"../../Collectible"
 @onready var economy: Node = $"../../../../Systems/Economy"
 
@@ -48,3 +47,6 @@ func _on_collection_area_body_entered(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	print("Omw son")
 	target = cell.global_position
+
+func _on_cell_cooldown_timeout() -> void:
+	target = collectible.global_position

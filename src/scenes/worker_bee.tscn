@@ -46,8 +46,11 @@ wait_time = 2.0
 one_shot = true
 
 [node name="CellCooldown" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
 
 [connection signal="body_entered" from="Collection Area" to="." method="_on_collection_area_body_entered"]
 [connection signal="body_entered" from="Sight Area" to="." method="_on_sight_area_body_entered"]
 [connection signal="body_exited" from="Sight Area" to="." method="_on_sight_area_body_exited"]
 [connection signal="timeout" from="CollectibleCooldown" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="CellCooldown" to="." method="_on_cell_cooldown_timeout"]
