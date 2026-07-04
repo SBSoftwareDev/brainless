@@ -30,6 +30,24 @@ position = Vector2(457, 330)
 [node name="EmptyCell3" parent="World/Level" instance=ExtResource("2_276xm")]
 position = Vector2(457, 363)
 
+[node name="EmptyCell4" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(480, 379)
+
+[node name="EmptyCell5" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(503, 364)
+
+[node name="EmptyCell6" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(526, 348)
+
+[node name="EmptyCell7" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(526, 317)
+
+[node name="EmptyCell8" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(503, 300)
+
+[node name="EmptyCell9" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(481, 284)
+
 [node name="Entities" type="Node2D" parent="World"]
 
 [node name="Collectible" parent="World/Entities" instance=ExtResource("1_covw0")]
