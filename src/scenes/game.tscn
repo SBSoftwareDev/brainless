@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://4vqtyrbxi32s"]
+[gd_scene load_steps=4 format=3 uid="uid://4vqtyrbxi32s"]
 
 [ext_resource type="Script" uid="uid://b5qquvw15kre8" path="res://src/scenes/economy.gd" id="1_3rtjt"]
-[ext_resource type="PackedScene" path="res://src/scenes/collectible.tscn" id="1_covw0"]
-[ext_resource type="PackedScene" path="res://src/scenes/worker_bee.tscn" id="2_3rtjt"]
-[ext_resource type="PackedScene" uid="uid://dscsnp8cieu3t" path="res://src/scenes/cell.tscn" id="4_yufto"]
+[ext_resource type="PackedScene" uid="uid://fivhk2risx6o" path="res://src/scenes/collectible.tscn" id="1_covw0"]
+[ext_resource type="PackedScene" uid="uid://bou1hucryo30g" path="res://src/scenes/bee_and_cell.tscn" id="3_3rtjt"]
 
 [node name="Game" type="Node"]
 process_mode = 3
@@ -22,36 +21,13 @@ process_mode = 1
 
 [node name="Entities" type="Node2D" parent="World"]
 
-[node name="Worker Bee" parent="World/Entities" instance=ExtResource("2_3rtjt")]
-position = Vector2(439, 344)
-
 [node name="Collectible" parent="World/Entities" instance=ExtResource("1_covw0")]
-position = Vector2(528, 302)
+unique_name_in_owner = true
+position = Vector2(-164, 337)
 scale = Vector2(1.0225279, 1)
 
-[node name="Collectible2" parent="World/Entities" instance=ExtResource("1_covw0")]
-position = Vector2(595, 252)
-
-[node name="Collectible3" parent="World/Entities" instance=ExtResource("1_covw0")]
-position = Vector2(593, 185)
-
-[node name="Collectible4" parent="World/Entities" instance=ExtResource("1_covw0")]
-position = Vector2(468, 153)
-
-[node name="Collectible5" parent="World/Entities" instance=ExtResource("1_covw0")]
-position = Vector2(475, 231)
-
-[node name="Collectible6" parent="World/Entities" instance=ExtResource("1_covw0")]
-position = Vector2(329, 419)
-
-[node name="Cell" parent="World/Entities" instance=ExtResource("4_yufto")]
-position = Vector2(324, 180)
-
-[node name="Cell2" parent="World/Entities" instance=ExtResource("4_yufto")]
-position = Vector2(245, 228)
-
-[node name="Cell3" parent="World/Entities" instance=ExtResource("4_yufto")]
-position = Vector2(252, 296)
+[node name="BeeAndCell" parent="World/Entities" instance=ExtResource("3_3rtjt")]
+position = Vector2(579, 331)
 
 [node name="Effects" type="Node2D" parent="World"]
 

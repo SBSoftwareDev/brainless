@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://kf0cvuft61ib"]
+[gd_scene load_steps=5 format=3 uid="uid://fivhk2risx6o"]
 
 [ext_resource type="Script" uid="uid://b35egn0gjfv8g" path="res://src/scripts/collectible.gd" id="1_0swxi"]
 [ext_resource type="Texture2D" uid="uid://dbp6h57n8eixx" path="res://assets/img/spritesheet/All free tiles.png" id="1_lyw24"]
@@ -12,7 +12,6 @@ radius = 5.6568546
 height = 16.0
 
 [node name="Collectible" type="CharacterBody2D"]
-motion_mode = 1
 script = ExtResource("1_0swxi")
 
 [node name="Collectible Sprite" type="Sprite2D" parent="."]
