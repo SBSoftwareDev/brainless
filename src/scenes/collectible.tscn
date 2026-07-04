@@ -19,6 +19,7 @@ texture_filter = 1
 texture = SubResource("AtlasTexture_0swxi")
 
 [node name="Pickup Area" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(1, 0)
 rotation = 0.7853982
 shape = SubResource("CapsuleShape2D_lyw24")

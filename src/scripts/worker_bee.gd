@@ -6,10 +6,10 @@ var target :Vector2 = Vector2.ZERO
 var movement_direction :bool = true
 
 @onready var cell: Sprite2D = $"../Cell"
-@onready var timer: Timer = $Timer
+@onready var collectible_cooldown: Timer = $CollectibleCooldown
+@onready var cell_cooldown: Timer = $CellCooldown
 @onready var collectible: CharacterBody2D = $"../../Collectible"
 @onready var economy: Node = $"../../../../Systems/Economy"
-@onready var movement_timer: Timer = $MovementTimer
 
 ## INITIALIZATION
 func _ready() -> void:
@@ -43,7 +43,7 @@ func _on_collection_area_body_entered(body: Node2D) -> void:
 	if body.name.begins_with("Collectible"):
 		#body.freeEntity()
 		print("Collected ", economy.addNectar(1))
-		timer.start()
+		collectible_cooldown.start()
 
 func _on_timer_timeout() -> void:
 	print("Omw son")

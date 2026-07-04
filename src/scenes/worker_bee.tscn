@@ -28,21 +28,26 @@ texture = SubResource("AtlasTexture_xt75n")
 [node name="Collection Area" type="Area2D" parent="."]
 
 [node name="Collection Area Shape" type="CollisionShape2D" parent="Collection Area"]
+visible = false
 shape = SubResource("CircleShape2D_iq0ao")
 
 [node name="Sight Area" type="Area2D" parent="."]
+visible = false
 
 [node name="Sight Area Shape" type="CollisionShape2D" parent="Sight Area"]
 shape = SubResource("CircleShape2D_54pxd")
 
 [node name="Collision Area" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_xt75n")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="CollectibleCooldown" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="CellCooldown" type="Timer" parent="."]
 
 [connection signal="body_entered" from="Collection Area" to="." method="_on_collection_area_body_entered"]
 [connection signal="body_entered" from="Sight Area" to="." method="_on_sight_area_body_entered"]
 [connection signal="body_exited" from="Sight Area" to="." method="_on_sight_area_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="CollectibleCooldown" to="." method="_on_timer_timeout"]
