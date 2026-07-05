@@ -18,6 +18,8 @@ script = ExtResource("1_3rtjt")
 
 [node name="World" type="Node2D" parent="."]
 process_mode = 1
+light_mask = 4
+visibility_layer = 4
 
 [node name="Level" type="Node2D" parent="World"]
 
