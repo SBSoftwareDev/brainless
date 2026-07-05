@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://ca5du5sbdgw2t"]
+[gd_scene load_steps=4 format=3 uid="uid://ca5du5sbdgw2t"]
 
 [ext_resource type="Script" uid="uid://2fy1ymhb4egt" path="res://src/scripts/control.gd" id="1_gp5ph"]
+[ext_resource type="Texture2D" uid="uid://dh722kf4b7uh3" path="res://assets/img/ui/nectar.png" id="2_k1qm1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1qm1"]
+bg_color = Color(0.9019608, 0.7019608, 0.50980395, 0.5254902)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.55722296, 0.3813506, 0.20049214, 0.5254902)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -31,36 +44,115 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_vertical = 0
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 10
-
-[node name="NectarAmountLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/HBoxContainer/MarginContainer"]
+[node name="NectarAmountLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Nectar:"
+bbcode_enabled = true
+text = "N:"
+scroll_active = false
 horizontal_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_top = 10
-
-[node name="BeeAmountLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/HBoxContainer/MarginContainer2"]
+[node name="BeeAmountLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Bees:"
+bbcode_enabled = true
+text = "B:"
+scroll_active = false
 horizontal_alignment = 1
+
+[node name="RateUpgradePanel" type="MarginContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Panel" type="Panel" parent="ColorRect/VBoxContainer/RateUpgradePanel"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k1qm1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer/RateUpgradePanel/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -29.0
+offset_right = 111.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/RateUpgradePanel/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 14
+text = "Collection Rate: 1.00x"
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/RateUpgradePanel/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Price: 5"
+icon = ExtResource("2_k1qm1")
+icon_alignment = 2
+
+[node name="CellCooldownUpgradePanel2" type="MarginContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Panel" type="Panel" parent="ColorRect/VBoxContainer/CellCooldownUpgradePanel2"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k1qm1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer/CellCooldownUpgradePanel2/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -29.0
+offset_right = 111.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/CellCooldownUpgradePanel2/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 14
+text = "Bee Cooldown Speed: 1.00x"
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/CellCooldownUpgradePanel2/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Price: 5"
+icon = ExtResource("2_k1qm1")
+icon_alignment = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
