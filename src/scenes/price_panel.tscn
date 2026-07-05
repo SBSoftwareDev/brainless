@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwnf6ld0o4bvt"]
 
-[ext_resource type="Script" uid="uid://bq44kgf2xa1jg" path="res://src/scenes/price_panel.gd" id="1_6tv45"]
+[ext_resource type="Script" uid="uid://bq44kgf2xa1jg" path="res://src/scripts/price_panel.gd" id="1_6tv45"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_214sn"]
 bg_color = Color(0.18000486, 0.1800049, 0.1800048, 0.6745098)
@@ -10,6 +10,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [node name="PricePanel" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_6tv45")

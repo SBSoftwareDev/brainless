@@ -8,9 +8,10 @@ texture = ExtResource("1_3bbs8")
 script = ExtResource("3_rjsee")
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(15, 15)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-visible = false
+position = Vector2(-15, -15)
 polygon = PackedVector2Array(-14, -1, -4, -14, 4, -14, 14, -1, 14, 1, 5, 14, -5, 14, -14, 1)
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

@@ -24,3 +24,12 @@ func getBeeAmount() -> int:
 	
 func getCellPrice() -> int:
 	return ceil(cell_price + (cells_purchased * price_multiplier))
+
+func buyCell() -> bool:
+	var price :int = getCellPrice()
+	if nectar >= price:
+		nectar -= price
+		cells_purchased += 1
+		return true
+	else:
+		return false

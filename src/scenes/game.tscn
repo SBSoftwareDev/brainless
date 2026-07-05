@@ -23,32 +23,32 @@ visibility_layer = 4
 
 [node name="Level" type="Node2D" parent="World"]
 
-[node name="EmptyCell" parent="World/Level" instance=ExtResource("2_276xm")]
-position = Vector2(459, 299)
+[node name="Empty Cell" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(459, 331)
 
-[node name="EmptyCell2" parent="World/Level" instance=ExtResource("2_276xm")]
-position = Vector2(457, 330)
+[node name="Empty Cell2" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(459, 300)
 
-[node name="EmptyCell3" parent="World/Level" instance=ExtResource("2_276xm")]
-position = Vector2(457, 363)
+[node name="Empty Cell3" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(481, 284)
 
-[node name="EmptyCell4" parent="World/Level" instance=ExtResource("2_276xm")]
-position = Vector2(480, 379)
-
-[node name="EmptyCell5" parent="World/Level" instance=ExtResource("2_276xm")]
-position = Vector2(503, 364)
-
-[node name="EmptyCell6" parent="World/Level" instance=ExtResource("2_276xm")]
-position = Vector2(526, 348)
-
-[node name="EmptyCell7" parent="World/Level" instance=ExtResource("2_276xm")]
-position = Vector2(526, 317)
-
-[node name="EmptyCell8" parent="World/Level" instance=ExtResource("2_276xm")]
+[node name="Empty Cell4" parent="World/Level" instance=ExtResource("2_276xm")]
 position = Vector2(503, 300)
 
-[node name="EmptyCell9" parent="World/Level" instance=ExtResource("2_276xm")]
-position = Vector2(481, 284)
+[node name="Empty Cell5" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(525, 317)
+
+[node name="Empty Cell6" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(526, 348)
+
+[node name="Empty Cell7" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(503, 365)
+
+[node name="Empty Cell8" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(480, 380)
+
+[node name="Empty Cell9" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(458, 363)
 
 [node name="Entities" type="Node2D" parent="World"]
 
