@@ -4,6 +4,7 @@ const SPEED :float = 1.0
 
 var target :Vector2 = Vector2.ZERO
 var movement_direction :bool = true
+var collectible_cooldown_wait_time :float = 2.0
 
 @onready var cell: Sprite2D = $"../Cell"
 @onready var collectible_cooldown: Timer = $CollectibleCooldown
@@ -13,6 +14,7 @@ var movement_direction :bool = true
 ## INITIALIZATION
 func _ready() -> void:
 	target = collectible.global_position
+
 
 
 
@@ -41,11 +43,9 @@ func process_movement(delta: float) -> void:
 func _on_collection_area_body_entered(body: Node2D) -> void:
 	if body.name.begins_with("Collectible"):
 		#body.freeEntity()
-		print("Collected ", economy.addNectar(1))
 		collectible_cooldown.start()
 
 func _on_timer_timeout() -> void:
-	print("Omw son")
 	target = cell.global_position
 
 func _on_cell_cooldown_timeout() -> void:

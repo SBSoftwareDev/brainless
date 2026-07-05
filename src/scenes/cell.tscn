@@ -15,3 +15,4 @@ visible = false
 polygon = PackedVector2Array(-9, -10, -5, -15, 5, -15, 15, -2, 15, 2, 5, 15, -5, 15, -10, 10, -13, 7, -15, 2, -15, -2)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

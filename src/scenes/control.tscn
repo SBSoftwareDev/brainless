@@ -108,7 +108,7 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 14
 text = "Collection Rate: 1.00x"
 
-[node name="Button" type="Button" parent="ColorRect/VBoxContainer/RateUpgradePanel/Panel/VBoxContainer"]
+[node name="RateUpgradeButton" type="Button" parent="ColorRect/VBoxContainer/RateUpgradePanel/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -146,7 +146,7 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 14
 text = "Bee Cooldown Speed: 1.00x"
 
-[node name="Button" type="Button" parent="ColorRect/VBoxContainer/CellCooldownUpgradePanel2/Panel/VBoxContainer"]
+[node name="CellUpgradeButton" type="Button" parent="ColorRect/VBoxContainer/CellCooldownUpgradePanel2/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -160,3 +160,6 @@ size_flags_vertical = 3
 
 [node name="PricePanel" parent="." instance=ExtResource("3_n54qu")]
 layout_mode = 1
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/RateUpgradePanel/Panel/VBoxContainer/RateUpgradeButton" to="." method="_on_rate_upgrade_button_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/CellCooldownUpgradePanel2/Panel/VBoxContainer/CellUpgradeButton" to="." method="_on_cell_upgrade_button_pressed"]
