@@ -2,18 +2,21 @@ extends Sprite2D
 
 @onready var player_stats: Node = $"../../../../Systems/PlayerStats"
 @onready var economy: Node = $"../../../../Systems/Economy"
-@onready var cell_cooldown: Timer = $"../Worker Bee/CellCooldown"
+@onready var cell_cooldown: Timer = $"../BeePath/PathFollow2D/Worker Bee/CellCooldown"
 
 var bee_inside :bool = true
 
+func _ready() -> void:
+	cell_cooldown.wait_time = player_stats.get_base_wait_time()
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.get_parent() == get_parent() && bee_inside == false:
+	var parent :Node2D = body.get_parent().get_parent().get_parent()
+	if parent && parent == get_parent() && bee_inside == false:
 		bee_inside = true
 		economy.addNectar(player_stats.get_collection_rate())
+		cell_cooldown.wait_time = player_stats.get_total_wait_time()
 		cell_cooldown.start()
 
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_area_2d_body_exited(_body: Node2D) -> void:
 	bee_inside = false
-	if body.get_parent() == get_parent():
-		cell_cooldown.start()

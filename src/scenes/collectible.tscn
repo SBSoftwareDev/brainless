@@ -7,9 +7,8 @@
 atlas = ExtResource("1_lyw24")
 region = Rect2(142.44293, 205.90411, 17.539948, 20.95874)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lyw24"]
-radius = 5.6568546
-height = 16.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0swxi"]
+size = Vector2(100.37, 1500)
 
 [node name="Collectible" type="CharacterBody2D"]
 script = ExtResource("1_0swxi")
@@ -19,7 +18,4 @@ texture_filter = 1
 texture = SubResource("AtlasTexture_0swxi")
 
 [node name="Pickup Area" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(1, 0)
-rotation = 0.7853982
-shape = SubResource("CapsuleShape2D_lyw24")
+shape = SubResource("RectangleShape2D_0swxi")
