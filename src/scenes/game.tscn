@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://4vqtyrbxi32s"]
+[gd_scene load_steps=9 format=3 uid="uid://4vqtyrbxi32s"]
 
-[ext_resource type="PackedScene" uid="uid://kf0cvuft61ib" path="res://src/scenes/collectible.tscn" id="1_covw0"]
-[ext_resource type="PackedScene" uid="uid://gyn7g55md6gq" path="res://src/scenes/worker_bee.tscn" id="2_3rtjt"]
+[ext_resource type="Script" uid="uid://b5qquvw15kre8" path="res://src/scripts/economy.gd" id="1_3rtjt"]
+[ext_resource type="PackedScene" uid="uid://fivhk2risx6o" path="res://src/scenes/collectible.tscn" id="1_covw0"]
+[ext_resource type="PackedScene" uid="uid://77arjm8gy316" path="res://src/scenes/empty_cell.tscn" id="2_276xm"]
+[ext_resource type="Script" uid="uid://o5dwssmffn71" path="res://src/scripts/player_stats.gd" id="2_lcg6w"]
+[ext_resource type="PackedScene" uid="uid://bou1hucryo30g" path="res://src/scenes/bee_and_cell.tscn" id="3_3rtjt"]
+[ext_resource type="PackedScene" uid="uid://ca5du5sbdgw2t" path="res://src/scenes/control.tscn" id="4_yufto"]
+[ext_resource type="Script" uid="uid://bujvj7kk26sdv" path="res://src/scripts/debug_root.gd" id="7_gh3at"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flib5"]
+bg_color = Color(0.41568628, 0.6431373, 0.6745098, 0.6901961)
 
 [node name="Game" type="Node"]
 process_mode = 3
@@ -9,44 +17,70 @@ process_mode = 3
 [node name="Systems" type="Node" parent="."]
 process_mode = 1
 
+[node name="Economy" type="Node" parent="Systems"]
+unique_name_in_owner = true
+script = ExtResource("1_3rtjt")
+
+[node name="PlayerStats" type="Node" parent="Systems"]
+unique_name_in_owner = true
+script = ExtResource("2_lcg6w")
+
 [node name="World" type="Node2D" parent="."]
 process_mode = 1
+light_mask = 4
+visibility_layer = 4
 
 [node name="Level" type="Node2D" parent="World"]
 
+[node name="Empty Cell" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(459, 331)
+
+[node name="Empty Cell2" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(459, 300)
+
+[node name="Empty Cell3" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(481, 284)
+
+[node name="Empty Cell4" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(503, 300)
+
+[node name="Empty Cell5" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(525, 317)
+
+[node name="Empty Cell6" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(526, 348)
+
+[node name="Empty Cell7" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(503, 365)
+
+[node name="Empty Cell8" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(480, 380)
+
+[node name="Empty Cell9" parent="World/Level" instance=ExtResource("2_276xm")]
+position = Vector2(458, 363)
+
 [node name="Entities" type="Node2D" parent="World"]
 
-[node name="Worker Bee" parent="World/Entities" instance=ExtResource("2_3rtjt")]
-position = Vector2(439, 344)
-
 [node name="Collectible" parent="World/Entities" instance=ExtResource("1_covw0")]
-position = Vector2(528, 302)
+unique_name_in_owner = true
+position = Vector2(-164, 337)
+scale = Vector2(1.0225279, 1)
 
-[node name="Collectible2" parent="World/Entities" instance=ExtResource("1_covw0")]
-position = Vector2(595, 252)
+[node name="BeeAndCell" parent="World/Entities" instance=ExtResource("3_3rtjt")]
+position = Vector2(503, 332)
 
-[node name="Collectible3" parent="World/Entities" instance=ExtResource("1_covw0")]
-position = Vector2(593, 185)
+[node name="BeeAndCell2" parent="World/Entities" instance=ExtResource("3_3rtjt")]
+position = Vector2(481, 316)
 
-[node name="Collectible4" parent="World/Entities" instance=ExtResource("1_covw0")]
-position = Vector2(468, 153)
-
-[node name="Collectible5" parent="World/Entities" instance=ExtResource("1_covw0")]
-position = Vector2(475, 231)
-
-[node name="Collectible6" parent="World/Entities" instance=ExtResource("1_covw0")]
-position = Vector2(329, 419)
+[node name="BeeAndCell3" parent="World/Entities" instance=ExtResource("3_3rtjt")]
+position = Vector2(480, 348)
 
 [node name="Effects" type="Node2D" parent="World"]
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 process_mode = 1
 
-[node name="UIRoot" type="Control" parent="UILayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="UIRoot" parent="UILayer" instance=ExtResource("4_yufto")]
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 process_mode = 2
@@ -59,9 +93,42 @@ offset_bottom = 40.0
 
 [node name="DebugLayer" type="CanvasLayer" parent="."]
 process_mode = 3
+layer = 5
 
 [node name="DebugRoot" type="Control" parent="DebugLayer"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+script = ExtResource("7_gh3at")
+
+[node name="Panel" type="Panel" parent="DebugLayer/DebugRoot"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_flib5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DebugLayer/DebugRoot/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="CollectionRateDebugLabel" type="Label" parent="DebugLayer/DebugRoot/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "Collection Rate: "
+horizontal_alignment = 1
+
+[node name="CellCooldownDebugLabel" type="Label" parent="DebugLayer/DebugRoot/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "Cell Cooldown Timer:"
+horizontal_alignment = 1

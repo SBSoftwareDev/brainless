@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bou1hucryo30g"]
+
+[ext_resource type="PackedScene" uid="uid://cl03cvs71awg0" path="res://src/scenes/worker_bee.tscn" id="1_ekq2b"]
+[ext_resource type="PackedScene" uid="uid://dscsnp8cieu3t" path="res://src/scenes/cell.tscn" id="2_p5w5m"]
+
+[sub_resource type="Curve2D" id="Curve2D_ekq2b"]
+_data = {
+"points": PackedVector2Array(35.469975, 10.024123, -35.469975, -10.024123, 358, 291, 68.626686, 1.5421728, -68.626686, -1.5421728, 266, 358, 41.25312, -15.036184, -41.25312, 15.036184, 185, 297, 43.951923, -12.337382, -43.951923, 12.337382, 139, 355, 14.650641, 25.060308, -14.650641, -25.060308, -38, 308, -40.096493, -3.855432, 40.096493, 3.855432, -9, 272, 3.469889, -13.108468, -3.469889, 13.108468, 22, 329, 75.95201, 8.867495, -75.95201, -8.867495, -52, 352, 48.963985, -141.8799, -48.963985, 141.8799, -307, 293)
+}
+point_count = 9
+
+[node name="BeeAndCell" type="Node2D"]
+
+[node name="BeePath" type="Path2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-357.975, -290.9)
+curve = SubResource("Curve2D_ekq2b")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="BeePath"]
+position = Vector2(358, 291)
+rotation = -2.8661668
+loop = false
+
+[node name="Worker Bee" parent="BeePath/PathFollow2D" instance=ExtResource("1_ekq2b")]
+z_index = 100
+position = Vector2(0.0512492, 0.08943956)
+rotation = 2.8661668
+motion_mode = 1
+
+[node name="Cell" parent="." instance=ExtResource("2_p5w5m")]

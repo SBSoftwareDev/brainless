@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwnf6ld0o4bvt"]
+
+[ext_resource type="Script" uid="uid://bq44kgf2xa1jg" path="res://src/scripts/price_panel.gd" id="1_6tv45"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_214sn"]
+bg_color = Color(0.18000486, 0.1800049, 0.1800048, 0.6745098)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="PricePanel" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_6tv45")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -40.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_214sn")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "Price: x [img]res://assets/img/ui/nectar.png[/img]"
+horizontal_alignment = 1
+vertical_alignment = 1
