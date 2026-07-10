@@ -5,17 +5,19 @@ const SPEED :float = 400.0
 var target :Vector2 = Vector2.ZERO
 var movement_direction :bool = true
 var collectible_cooldown_wait_time :float = 2.0
-var direction_away :bool = true
+var direction_away :bool = false
+var bee_ready :bool = true
 
 @onready var cell: Sprite2D = $"../../../Cell"
 @onready var collectible_cooldown: Timer = $CollectibleCooldown
-@onready var collectible: CharacterBody2D = $"../../../../Collectible"
 @onready var economy: Node = $"../../../../../../Systems/Economy"
 @onready var path_follow_2d: PathFollow2D = $".."
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var bee_path: Path2D = %BeePath
 @onready var bee_hole: Sprite2D = $"../../../../BeeHole"
 @onready var bee_sprite: Sprite2D = $"Bee Sprite"
+@onready var progress_bar: TextureProgressBar = $"Bee Sprite/TextureProgressBar"
+@onready var cell_cooldown: Timer = $CellCooldown
 
 ## INITIALIZATION
 func _ready() -> void:
@@ -30,6 +32,7 @@ func _ready() -> void:
 ## MOVEMENT & PHYSICS
 func _physics_process(delta: float) -> void:
 	process_movement(delta)
+	progress_bar.value = (cell_cooldown.time_left * 100) / cell_cooldown.wait_time
 	
 
 func process_movement(delta: float) -> void:
@@ -41,7 +44,8 @@ func process_movement(delta: float) -> void:
 		#global_position = global_position.lerp(target, SPEED * delta)
 
 
-
+func start_progress_bar() -> void:
+	progress_bar.value = 100
 
 
 func enter_bee_hole() -> void:
@@ -73,6 +77,15 @@ func _on_timer_timeout() -> void:
 		
 
 func _on_cell_cooldown_timeout() -> void:
-	direction_away = true
+	#direction_away = true
+	bee_ready = true
+	cell.ready_up()
 	bee_sprite.flip_h = true
-	target = bee_hole.global_position
+	#target = bee_hole.global_position
+
+
+func _on_collection_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event.is_action_pressed("Select") && bee_ready:
+		bee_ready = false
+		direction_away = true
+		cell.clear()

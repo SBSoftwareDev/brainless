@@ -2,7 +2,7 @@ extends Node
 
 var collection_rate :float = 1.0
 var cell_cooldown_rate :float = 1.0
-var cell_cooldown_base_time :float = 4.0
+var cell_cooldown_base_time :float = 5.0
 
 var collection_rate_upgrades :int = 0
 var cell_cooldown_rate_upgrades :int = 0
