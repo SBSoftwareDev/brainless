@@ -1,6 +1,6 @@
 extends Node
 
-var nectar :int = 0
+var nectar :int = 100
 var bees :int = 0
 
 var cell_price = 4
@@ -15,7 +15,7 @@ var collection_rate_purchases :int = 0
 @onready var entities: Node2D = $"../../World/Entities"
 
 func _ready() -> void:
-	bees = entities.find_children("Bee*", "", false).size()
+	bees = entities.find_children("BeeAnd*", "", false).size()
 
 func addNectar(value :int) -> int:
 	nectar += value

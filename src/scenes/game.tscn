@@ -1,6 +1,6 @@
-[gd_scene load_steps=37 format=3 uid="uid://4vqtyrbxi32s"]
+[gd_scene load_steps=32 format=3 uid="uid://4vqtyrbxi32s"]
 
-[ext_resource type="Script" path="res://src/scripts/economy.gd" id="1_3rtjt"]
+[ext_resource type="Script" uid="uid://b5qquvw15kre8" path="res://src/scripts/economy.gd" id="1_3rtjt"]
 [ext_resource type="PackedScene" uid="uid://fivhk2risx6o" path="res://src/scenes/collectible.tscn" id="1_covw0"]
 [ext_resource type="PackedScene" uid="uid://dxm31vkq2i5rl" path="res://src/scenes/empty_cell.tscn" id="2_276xm"]
 [ext_resource type="Script" path="res://src/scripts/player_stats.gd" id="2_lcg6w"]
@@ -98,26 +98,6 @@ resource_local_to_scene = true
 shader = SubResource("Shader_h2mn8")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iwul2"]
-resource_local_to_scene = true
-shader = SubResource("Shader_h2mn8")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6e0h8"]
-resource_local_to_scene = true
-shader = SubResource("Shader_h2mn8")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bd8mh"]
-resource_local_to_scene = true
-shader = SubResource("Shader_h2mn8")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bmsc2"]
-resource_local_to_scene = true
-shader = SubResource("Shader_h2mn8")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w3ahf"]
-resource_local_to_scene = true
-shader = SubResource("Shader_h2mn8")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o13ka"]
 resource_local_to_scene = true
 shader = SubResource("Shader_h2mn8")
 
@@ -229,26 +209,6 @@ position = Vector2(397, 376)
 
 [node name="Empty Cell18" parent="World/Level" instance=ExtResource("2_276xm")]
 material = SubResource("ShaderMaterial_iwul2")
-position = Vector2(365.00003, 350)
-
-[node name="Empty Cell23" parent="World/Level" instance=ExtResource("2_276xm")]
-material = SubResource("ShaderMaterial_6e0h8")
-position = Vector2(365, 298)
-
-[node name="Empty Cell24" parent="World/Level" instance=ExtResource("2_276xm")]
-material = SubResource("ShaderMaterial_bd8mh")
-position = Vector2(429, 350)
-
-[node name="Empty Cell25" parent="World/Level" instance=ExtResource("2_276xm")]
-material = SubResource("ShaderMaterial_bmsc2")
-position = Vector2(429, 298)
-
-[node name="Empty Cell26" parent="World/Level" instance=ExtResource("2_276xm")]
-material = SubResource("ShaderMaterial_w3ahf")
-position = Vector2(397, 324)
-
-[node name="Empty Cell27" parent="World/Level" instance=ExtResource("2_276xm")]
-material = SubResource("ShaderMaterial_o13ka")
 position = Vector2(365.00003, 350)
 
 [node name="Entities" type="Node2D" parent="World"]

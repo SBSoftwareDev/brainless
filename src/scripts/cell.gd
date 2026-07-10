@@ -8,6 +8,10 @@ var bee_inside :bool = true
 
 func _ready() -> void:
 	cell_cooldown.wait_time = player_stats.get_base_wait_time()
+	
+func _process(_delta: float) -> void:
+	if cell_cooldown.wait_time <= 0:
+		cell_cooldown.wait_time = 0.0001
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	var parent :Node2D = body.get_parent().get_parent().get_parent()
