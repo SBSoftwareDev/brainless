@@ -1,15 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuxp5sg65mf58"]
+[gd_scene load_steps=2 format=3 uid="uid://cuxp5sg65mf58"]
 
-[sub_resource type="Gradient" id="Gradient_onqve"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(1, 1, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_cep3i"]
-gradient = SubResource("Gradient_onqve")
+[ext_resource type="Texture2D" uid="uid://bj3surl3e6k2v" path="res://assets/img/spritesheet/Background_image.png" id="1_cep3i"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(217, 299.99997)
-scale = Vector2(15.075, 2586.3325)
-texture = SubResource("GradientTexture1D_cep3i")
+position = Vector2(147.50009, 327.00003)
+scale = Vector2(0.9046666, 1.1244445)
+texture = ExtResource("1_cep3i")

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://by3idyv3mn488"]
+[gd_scene load_steps=10 format=3 uid="uid://by3idyv3mn488"]
 
 [ext_resource type="Script" path="res://src/scripts/control.gd" id="1_gp5ph"]
 [ext_resource type="Texture2D" uid="uid://dh722kf4b7uh3" path="res://assets/img/ui/nectar.png" id="2_k1qm1"]
+[ext_resource type="Texture2D" uid="uid://3guvieubuwy8" path="res://assets/img/spritesheet/HiveBridge.png" id="3_210pg"]
 [ext_resource type="PackedScene" uid="uid://cwnf6ld0o4bvt" path="res://src/scenes/price_panel.tscn" id="3_n54qu"]
+[ext_resource type="Texture2D" uid="uid://dlknyeiv5bvmo" path="res://assets/img/spritesheet/Icons_0.3.png" id="4_hy5tx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1qm1"]
 bg_color = Color(0.9019608, 0.7019608, 0.50980395, 0.5254902)
@@ -15,6 +17,18 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3vkj"]
+atlas = ExtResource("4_hy5tx")
+region = Rect2(85, 7, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rqde"]
+atlas = ExtResource("4_hy5tx")
+region = Rect2(20, 2, 16, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmqt0"]
+atlas = ExtResource("4_hy5tx")
+region = Rect2(60, 4, 21, 18)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -155,6 +169,96 @@ icon = ExtResource("2_k1qm1")
 icon_alignment = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=5.0 connected=1]Upgrades[/wave]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_210pg")
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.7294118, 1)
+text = "Hive Bridge"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_d3vkj")
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.7294118, 1)
+text = "Royal Jelly"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_0rqde")
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.7294118, 1)
+text = "Mega Flora"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/VBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_dmqt0")
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.7294118, 1)
+text = "Triple Cells"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
