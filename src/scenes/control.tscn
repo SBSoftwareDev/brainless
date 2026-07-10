@@ -1,10 +1,27 @@
-[gd_scene load_steps=10 format=3 uid="uid://by3idyv3mn488"]
+[gd_scene load_steps=11 format=3 uid="uid://by3idyv3mn488"]
 
-[ext_resource type="Script" path="res://src/scripts/control.gd" id="1_gp5ph"]
+[ext_resource type="Script" uid="uid://2fy1ymhb4egt" path="res://src/scripts/control.gd" id="1_gp5ph"]
 [ext_resource type="Texture2D" uid="uid://dh722kf4b7uh3" path="res://assets/img/ui/nectar.png" id="2_k1qm1"]
 [ext_resource type="Texture2D" uid="uid://3guvieubuwy8" path="res://assets/img/spritesheet/HiveBridge.png" id="3_210pg"]
 [ext_resource type="PackedScene" uid="uid://cwnf6ld0o4bvt" path="res://src/scenes/price_panel.tscn" id="3_n54qu"]
 [ext_resource type="Texture2D" uid="uid://dlknyeiv5bvmo" path="res://assets/img/spritesheet/Icons_0.3.png" id="4_hy5tx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hy5tx"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.21960784, 0.12156863, 0.03137255, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.8, 0.8, 0.22352941, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1qm1"]
 bg_color = Color(0.9019608, 0.7019608, 0.50980395, 0.5254902)
@@ -40,37 +57,42 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_gp5ph")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.7942708
+anchors_preset = 11
+anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
-color = Color(0.50534403, 0.5053441, 0.50534403, 1)
-metadata/_edit_use_anchors_ = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_hy5tx")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.5
+offset_top = -294.0
+offset_right = 97.5
+offset_bottom = 294.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_top = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_vertical = 0
 alignment = 1
 
-[node name="NectarAmountLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="NectarAmountLabel" type="RichTextLabel" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 texture_filter = 2
 layout_mode = 2
@@ -81,7 +103,7 @@ text = "N:"
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="BeeAmountLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="BeeAmountLabel" type="RichTextLabel" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 texture_filter = 2
 layout_mode = 2
@@ -92,17 +114,17 @@ text = "B:"
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="RateUpgradePanel" type="MarginContainer" parent="ColorRect/VBoxContainer"]
+[node name="RateUpgradePanel" type="MarginContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="Panel" type="Panel" parent="ColorRect/VBoxContainer/RateUpgradePanel"]
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer/RateUpgradePanel"]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_k1qm1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer/RateUpgradePanel/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/RateUpgradePanel/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -116,13 +138,13 @@ offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer/RateUpgradePanel/Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/RateUpgradePanel/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 14
 text = "Collection Rate: 1.00x"
 
-[node name="RateUpgradeButton" type="Button" parent="ColorRect/VBoxContainer/RateUpgradePanel/Panel/VBoxContainer"]
+[node name="RateUpgradeButton" type="Button" parent="Panel/VBoxContainer/RateUpgradePanel/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -130,17 +152,17 @@ text = "Price: 5"
 icon = ExtResource("2_k1qm1")
 icon_alignment = 2
 
-[node name="CellCooldownUpgradePanel2" type="MarginContainer" parent="ColorRect/VBoxContainer"]
+[node name="CellCooldownUpgradePanel2" type="MarginContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="Panel" type="Panel" parent="ColorRect/VBoxContainer/CellCooldownUpgradePanel2"]
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer/CellCooldownUpgradePanel2"]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_k1qm1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer/CellCooldownUpgradePanel2/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/CellCooldownUpgradePanel2/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -154,13 +176,13 @@ offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer/CellCooldownUpgradePanel2/Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/CellCooldownUpgradePanel2/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 14
 text = "Bee Cooldown Speed: 1.00x"
 
-[node name="CellUpgradeButton" type="Button" parent="ColorRect/VBoxContainer/CellCooldownUpgradePanel2/Panel/VBoxContainer"]
+[node name="CellUpgradeButton" type="Button" parent="Panel/VBoxContainer/CellCooldownUpgradePanel2/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -168,102 +190,97 @@ text = "Price: 5"
 icon = ExtResource("2_k1qm1")
 icon_alignment = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_top = 25
+size_flags_horizontal = 4
+size_flags_vertical = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer2"]
 layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 21
 bbcode_enabled = true
 text = "[wave amp=50.0 freq=5.0 connected=1]Upgrades[/wave]"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("3_210pg")
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.7294118, 1)
 text = "Hive Bridge"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_vertical = 3
 texture = SubResource("AtlasTexture_d3vkj")
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.7294118, 1)
 text = "Royal Jelly"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/VBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 texture = SubResource("AtlasTexture_0rqde")
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.7294118, 1)
 text = "Mega Flora"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/VBoxContainer2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_vertical = 3
 texture = SubResource("AtlasTexture_dmqt0")
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/VBoxContainer2"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/VBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.7294118, 1)
 text = "Triple Cells"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/VBoxContainer/MarginContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-
-[node name="MarginContainer3" type="MarginContainer" parent="ColorRect/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
 [node name="PricePanel" parent="." instance=ExtResource("3_n54qu")]
 layout_mode = 1
 
-[connection signal="pressed" from="ColorRect/VBoxContainer/RateUpgradePanel/Panel/VBoxContainer/RateUpgradeButton" to="." method="_on_rate_upgrade_button_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/CellCooldownUpgradePanel2/Panel/VBoxContainer/CellUpgradeButton" to="." method="_on_cell_upgrade_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/RateUpgradePanel/Panel/VBoxContainer/RateUpgradeButton" to="." method="_on_rate_upgrade_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/CellCooldownUpgradePanel2/Panel/VBoxContainer/CellUpgradeButton" to="." method="_on_cell_upgrade_button_pressed"]

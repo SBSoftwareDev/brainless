@@ -6,10 +6,10 @@ extends Control
 @onready var nectar_amount_label: RichTextLabel = %NectarAmountLabel
 @onready var bee_amount_label: RichTextLabel = %BeeAmountLabel
 @onready var price_panel: Control = $PricePanel
-@onready var cell_cooldown_label: Label = $ColorRect/VBoxContainer/CellCooldownUpgradePanel2/Panel/VBoxContainer/Label
-@onready var rate_upgrade_label: Label = $ColorRect/VBoxContainer/RateUpgradePanel/Panel/VBoxContainer/Label
-@onready var rate_upgrade_button: Button = $ColorRect/VBoxContainer/RateUpgradePanel/Panel/VBoxContainer/RateUpgradeButton
-@onready var cell_upgrade_button: Button = $ColorRect/VBoxContainer/CellCooldownUpgradePanel2/Panel/VBoxContainer/CellUpgradeButton
+@onready var cell_cooldown_label: Label = $Panel/VBoxContainer/CellCooldownUpgradePanel2/Panel/VBoxContainer/Label
+@onready var rate_upgrade_label: Label = $Panel/VBoxContainer/RateUpgradePanel/Panel/VBoxContainer/Label
+@onready var rate_upgrade_button: Button = $Panel/VBoxContainer/RateUpgradePanel/Panel/VBoxContainer/RateUpgradeButton
+@onready var cell_upgrade_button: Button = $Panel/VBoxContainer/CellCooldownUpgradePanel2/Panel/VBoxContainer/CellUpgradeButton
 
 
 func _ready() -> void:
