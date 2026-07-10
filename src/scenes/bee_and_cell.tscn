@@ -1,19 +1,55 @@
-[gd_scene load_steps=4 format=3 uid="uid://bou1hucryo30g"]
+[gd_scene load_steps=7 format=3 uid="uid://bou1hucryo30g"]
 
 [ext_resource type="PackedScene" uid="uid://cl03cvs71awg0" path="res://src/scenes/worker_bee.tscn" id="1_ekq2b"]
 [ext_resource type="PackedScene" uid="uid://dscsnp8cieu3t" path="res://src/scenes/cell.tscn" id="2_p5w5m"]
 
 [sub_resource type="Curve2D" id="Curve2D_ekq2b"]
 _data = {
-"points": PackedVector2Array(35.469975, 10.024123, -35.469975, -10.024123, 358, 291, 68.626686, 1.5421728, -68.626686, -1.5421728, 266, 358, 41.25312, -15.036184, -41.25312, 15.036184, 185, 297, 43.951923, -12.337382, -43.951923, 12.337382, 139, 355, 14.650641, 25.060308, -14.650641, -25.060308, -38, 308, -40.096493, -3.855432, 40.096493, 3.855432, -9, 272, 3.469889, -13.108468, -3.469889, 13.108468, 22, 329, 75.95201, 8.867495, -75.95201, -8.867495, -52, 352, 48.963985, -141.8799, -48.963985, 141.8799, -307, 293)
+"points": PackedVector2Array(35.469975, 10.024123, -35.469975, -10.024123, 358, 291, 68.626686, 1.5421728, -68.626686, -1.5421728, 313, 299, 14.650641, 25.060308, -14.650641, -25.060308, 227, 301, -40.096493, -3.855432, 40.096493, 3.855432, 274, 282, 19.998814, -10.103209, -19.998814, 10.103209, 246, 323, 17.34946, 6.61355, -17.34946, -6.61355, 202, 323, 0, 0, 0, 0, 168, 305, 49.7153, 2.3725433, -49.7153, -2.3725433, 149, 270)
 }
-point_count = 9
+point_count = 8
+
+[sub_resource type="Animation" id="Animation_ekq2b"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_p5w5m"]
+resource_name = "fadeBack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qkfsb"]
+_data = {
+&"fade": SubResource("Animation_ekq2b"),
+&"fadeBack": SubResource("Animation_p5w5m")
+}
 
 [node name="BeeAndCell" type="Node2D"]
 
 [node name="BeePath" type="Path2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-357.975, -290.9)
+position = Vector2(-358, -291)
 curve = SubResource("Curve2D_ekq2b")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="BeePath"]
@@ -25,6 +61,16 @@ loop = false
 z_index = 100
 position = Vector2(0.0512492, 0.08943956)
 rotation = 2.8661668
+scale = Vector2(1e-05, 1e-05)
 motion_mode = 1
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BeePath/PathFollow2D/Worker Bee"]
+libraries = {
+&"": SubResource("AnimationLibrary_qkfsb")
+}
+
 [node name="Cell" parent="." instance=ExtResource("2_p5w5m")]
+position = Vector2(4.7683716e-07, -4.7683716e-07)
+scale = Vector2(3.461538, 3.5454543)
+
+[connection signal="animation_finished" from="BeePath/PathFollow2D/Worker Bee/AnimationPlayer" to="BeePath/PathFollow2D/Worker Bee" method="_on_animation_player_animation_finished"]

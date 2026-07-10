@@ -1,12 +1,125 @@
-[gd_scene load_steps=9 format=3 uid="uid://4vqtyrbxi32s"]
+[gd_scene load_steps=37 format=3 uid="uid://4vqtyrbxi32s"]
 
-[ext_resource type="Script" uid="uid://b5qquvw15kre8" path="res://src/scripts/economy.gd" id="1_3rtjt"]
+[ext_resource type="Script" path="res://src/scripts/economy.gd" id="1_3rtjt"]
 [ext_resource type="PackedScene" uid="uid://fivhk2risx6o" path="res://src/scenes/collectible.tscn" id="1_covw0"]
-[ext_resource type="PackedScene" uid="uid://77arjm8gy316" path="res://src/scenes/empty_cell.tscn" id="2_276xm"]
-[ext_resource type="Script" uid="uid://o5dwssmffn71" path="res://src/scripts/player_stats.gd" id="2_lcg6w"]
+[ext_resource type="PackedScene" uid="uid://dxm31vkq2i5rl" path="res://src/scenes/empty_cell.tscn" id="2_276xm"]
+[ext_resource type="Script" path="res://src/scripts/player_stats.gd" id="2_lcg6w"]
 [ext_resource type="PackedScene" uid="uid://bou1hucryo30g" path="res://src/scenes/bee_and_cell.tscn" id="3_3rtjt"]
-[ext_resource type="PackedScene" uid="uid://ca5du5sbdgw2t" path="res://src/scenes/control.tscn" id="4_yufto"]
-[ext_resource type="Script" uid="uid://bujvj7kk26sdv" path="res://src/scripts/debug_root.gd" id="7_gh3at"]
+[ext_resource type="PackedScene" uid="uid://cuxp5sg65mf58" path="res://src/scenes/background.tscn" id="3_flib5"]
+[ext_resource type="PackedScene" uid="uid://b0jtrhlwf3gct" path="res://src/scenes/bee_hole.tscn" id="4_6e0h8"]
+[ext_resource type="PackedScene" uid="uid://by3idyv3mn488" path="res://src/scenes/control.tscn" id="4_yufto"]
+[ext_resource type="Script" path="res://src/scripts/debug_root.gd" id="7_gh3at"]
+
+[sub_resource type="Shader" id="Shader_h2mn8"]
+code = "shader_type canvas_item;
+/*
+
+uniform float light = 1.0;
+
+void fragment() {
+	COLOR = texture(TEXTURE, UV);
+	COLOR.a = light;
+}*/"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5dxuo"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tnd0m"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0fcgq"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3xf06"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_873yf"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nm604"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ucld"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lkrtx"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ta85g"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_44dqv"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3xp0n"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p02ep"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vshuw"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kcfyl"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pm1mm"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tnxn1"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t2yr7"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pk722"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1luef"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iwul2"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6e0h8"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bd8mh"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bmsc2"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w3ahf"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o13ka"]
+resource_local_to_scene = true
+shader = SubResource("Shader_h2mn8")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flib5"]
 bg_color = Color(0.41568628, 0.6431373, 0.6745098, 0.6901961)
@@ -32,48 +145,126 @@ visibility_layer = 4
 
 [node name="Level" type="Node2D" parent="World"]
 
-[node name="Empty Cell" parent="World/Level" instance=ExtResource("2_276xm")]
-position = Vector2(459, 331)
-
-[node name="Empty Cell2" parent="World/Level" instance=ExtResource("2_276xm")]
-position = Vector2(459, 300)
+[node name="Background" parent="World/Level" instance=ExtResource("3_flib5")]
+show_behind_parent = true
+light_mask = 512
+visibility_layer = 512
+z_index = -3026
 
 [node name="Empty Cell3" parent="World/Level" instance=ExtResource("2_276xm")]
-position = Vector2(481, 284)
+material = SubResource("ShaderMaterial_5dxuo")
+position = Vector2(461, 272)
 
 [node name="Empty Cell4" parent="World/Level" instance=ExtResource("2_276xm")]
-position = Vector2(503, 300)
+material = SubResource("ShaderMaterial_tnd0m")
+position = Vector2(493, 246)
 
 [node name="Empty Cell5" parent="World/Level" instance=ExtResource("2_276xm")]
-position = Vector2(525, 317)
+material = SubResource("ShaderMaterial_0fcgq")
+position = Vector2(525.00006, 324)
 
 [node name="Empty Cell6" parent="World/Level" instance=ExtResource("2_276xm")]
-position = Vector2(526, 348)
+material = SubResource("ShaderMaterial_3xf06")
+position = Vector2(525, 272)
 
-[node name="Empty Cell7" parent="World/Level" instance=ExtResource("2_276xm")]
-position = Vector2(503, 365)
-
-[node name="Empty Cell8" parent="World/Level" instance=ExtResource("2_276xm")]
-position = Vector2(480, 380)
+[node name="Empty Cell17" parent="World/Level" instance=ExtResource("2_276xm")]
+material = SubResource("ShaderMaterial_873yf")
+position = Vector2(557, 298)
 
 [node name="Empty Cell9" parent="World/Level" instance=ExtResource("2_276xm")]
-position = Vector2(458, 363)
+material = SubResource("ShaderMaterial_nm604")
+position = Vector2(429, 246.00002)
+
+[node name="Empty Cell10" parent="World/Level" instance=ExtResource("2_276xm")]
+material = SubResource("ShaderMaterial_3ucld")
+position = Vector2(397.00003, 272)
+
+[node name="Empty Cell11" parent="World/Level" instance=ExtResource("2_276xm")]
+material = SubResource("ShaderMaterial_lkrtx")
+position = Vector2(365, 298)
+
+[node name="Empty Cell7" parent="World/Level" instance=ExtResource("2_276xm")]
+material = SubResource("ShaderMaterial_ta85g")
+position = Vector2(461, 376)
+
+[node name="Empty Cell19" parent="World/Level" instance=ExtResource("2_276xm")]
+material = SubResource("ShaderMaterial_44dqv")
+position = Vector2(429, 350)
+
+[node name="Empty Cell20" parent="World/Level" instance=ExtResource("2_276xm")]
+material = SubResource("ShaderMaterial_3xp0n")
+position = Vector2(493, 350)
+
+[node name="Empty Cell21" parent="World/Level" instance=ExtResource("2_276xm")]
+material = SubResource("ShaderMaterial_p02ep")
+position = Vector2(493, 298)
+
+[node name="Empty Cell22" parent="World/Level" instance=ExtResource("2_276xm")]
+material = SubResource("ShaderMaterial_vshuw")
+position = Vector2(429, 298)
+
+[node name="Empty Cell14" parent="World/Level" instance=ExtResource("2_276xm")]
+material = SubResource("ShaderMaterial_kcfyl")
+position = Vector2(493, 402)
+
+[node name="Empty Cell15" parent="World/Level" instance=ExtResource("2_276xm")]
+material = SubResource("ShaderMaterial_pm1mm")
+position = Vector2(525, 376.00003)
+
+[node name="Empty Cell16" parent="World/Level" instance=ExtResource("2_276xm")]
+material = SubResource("ShaderMaterial_tnxn1")
+position = Vector2(557.00006, 350)
+
+[node name="Empty Cell13" parent="World/Level" instance=ExtResource("2_276xm")]
+material = SubResource("ShaderMaterial_t2yr7")
+position = Vector2(429, 402)
+
+[node name="Empty Cell8" parent="World/Level" instance=ExtResource("2_276xm")]
+material = SubResource("ShaderMaterial_pk722")
+position = Vector2(397, 324)
+
+[node name="Empty Cell12" parent="World/Level" instance=ExtResource("2_276xm")]
+material = SubResource("ShaderMaterial_1luef")
+position = Vector2(397, 376)
+
+[node name="Empty Cell18" parent="World/Level" instance=ExtResource("2_276xm")]
+material = SubResource("ShaderMaterial_iwul2")
+position = Vector2(365.00003, 350)
+
+[node name="Empty Cell23" parent="World/Level" instance=ExtResource("2_276xm")]
+material = SubResource("ShaderMaterial_6e0h8")
+position = Vector2(365, 298)
+
+[node name="Empty Cell24" parent="World/Level" instance=ExtResource("2_276xm")]
+material = SubResource("ShaderMaterial_bd8mh")
+position = Vector2(429, 350)
+
+[node name="Empty Cell25" parent="World/Level" instance=ExtResource("2_276xm")]
+material = SubResource("ShaderMaterial_bmsc2")
+position = Vector2(429, 298)
+
+[node name="Empty Cell26" parent="World/Level" instance=ExtResource("2_276xm")]
+material = SubResource("ShaderMaterial_w3ahf")
+position = Vector2(397, 324)
+
+[node name="Empty Cell27" parent="World/Level" instance=ExtResource("2_276xm")]
+material = SubResource("ShaderMaterial_o13ka")
+position = Vector2(365.00003, 350)
 
 [node name="Entities" type="Node2D" parent="World"]
 
+[node name="BeeHole" parent="World/Entities" instance=ExtResource("4_6e0h8")]
+unique_name_in_owner = true
+position = Vector2(132, 322.00003)
+scale = Vector2(4.435484, 3.7824063)
+
 [node name="Collectible" parent="World/Entities" instance=ExtResource("1_covw0")]
 unique_name_in_owner = true
-position = Vector2(-164, 337)
+position = Vector2(-104, 316)
 scale = Vector2(1.0225279, 1)
 
-[node name="BeeAndCell" parent="World/Entities" instance=ExtResource("3_3rtjt")]
-position = Vector2(503, 332)
-
-[node name="BeeAndCell2" parent="World/Entities" instance=ExtResource("3_3rtjt")]
-position = Vector2(481, 316)
-
 [node name="BeeAndCell3" parent="World/Entities" instance=ExtResource("3_3rtjt")]
-position = Vector2(480, 348)
+position = Vector2(461, 324)
 
 [node name="Effects" type="Node2D" parent="World"]
 

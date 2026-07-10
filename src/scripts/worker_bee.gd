@@ -12,12 +12,17 @@ var direction_away :bool = true
 @onready var collectible: CharacterBody2D = $"../../../../Collectible"
 @onready var economy: Node = $"../../../../../../Systems/Economy"
 @onready var path_follow_2d: PathFollow2D = $".."
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var bee_path: Path2D = %BeePath
+@onready var bee_hole: Sprite2D = $"../../../../BeeHole"
+@onready var bee_sprite: Sprite2D = $"Bee Sprite"
 
 ## INITIALIZATION
 func _ready() -> void:
-	target = collectible.global_position
-
-
+	target = bee_hole.global_position
+	global_position = cell.global_position
+	bee_path.curve.add_point(bee_path.to_local(target))
+	scale = Vector2(1, 1)
 
 
 
@@ -25,13 +30,23 @@ func _ready() -> void:
 ## MOVEMENT & PHYSICS
 func _physics_process(delta: float) -> void:
 	process_movement(delta)
+	
 
 func process_movement(delta: float) -> void:
-	#global_position = global_position.lerp(target, SPEED * delta)
 	if direction_away:
+		#global_position = global_position.lerp(target, SPEED * delta)
 		path_follow_2d.progress += SPEED * delta
 	else:
 		path_follow_2d.progress += -SPEED * delta
+		#global_position = global_position.lerp(target, SPEED * delta)
+
+
+
+
+
+func enter_bee_hole() -> void:
+	animation_player.play("fade")
+	collectible_cooldown.start()
 
 
 ### SIGNALS
@@ -43,14 +58,21 @@ func process_movement(delta: float) -> void:
 #	target = Vector2.ZERO
 #
 func _on_collection_area_body_entered(body: Node2D) -> void:
-	if body.name.begins_with("Collectible"):
+	if body.name == "BeeHole":
 		#body.freeEntity()
+		animation_player.play("fade")
 		collectible_cooldown.start()
+		
 
 func _on_timer_timeout() -> void:
+	animation_player.play("fadeBack")
 	direction_away = false
+	bee_sprite.flip_h = false
 	#target = cell.global_position
+	
+		
 
 func _on_cell_cooldown_timeout() -> void:
 	direction_away = true
-	#target = collectible.global_position
+	bee_sprite.flip_h = true
+	target = bee_hole.global_position

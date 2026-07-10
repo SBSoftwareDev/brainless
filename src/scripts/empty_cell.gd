@@ -16,12 +16,14 @@ func _process(_delta: float) -> void:
 	process_input()
 
 func _on_area_2d_mouse_entered() -> void:
-	empty_cell.texture = load("res://assets/img/cell/cell_sprite_locked_highlighted.png")
+	#empty_cell.texture = load("res://assets/img/cell/cell_sprite_locked_highlighted.png")
+	material.set_shader_parameter("light", 0.5)
 	price_panel.visible = true
 	mouseInside = true
 
 func _on_area_2d_mouse_exited() -> void:
-	empty_cell.texture = load("res://assets/img/cell/cell_sprite_locked.png")
+	#empty_cell.texture = load("res://src/scenes/empty_cell.tscn::AtlasTexture_rjsee")
+	material.set_shader_parameter("light", 1.0)
 	price_panel.visible = false
 	mouseInside = false
 	
