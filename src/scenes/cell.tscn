@@ -1,18 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://dscsnp8cieu3t"]
 
-[ext_resource type="Texture2D" uid="uid://meu03lp5eolp" path="res://assets/img/cell/cell_sprite.png" id="1_kgu0s"]
-[ext_resource type="Script" uid="uid://byasji5xf1ypu" path="res://src/scripts/cell.gd" id="2_3aesr"]
+[ext_resource type="Texture2D" uid="uid://d3lv81yl2i4ma" path="res://assets/img/cell/cell_tex.tres" id="1_3aesr"]
+[ext_resource type="Script" path="res://src/scripts/cell.gd" id="2_3aesr"]
 
 [node name="Cell" type="Sprite2D"]
 texture_filter = 1
-texture = ExtResource("1_kgu0s")
+texture = ExtResource("1_3aesr")
 script = ExtResource("2_3aesr")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 visible = false
-polygon = PackedVector2Array(-9, -10, -5, -15, 5, -15, 15, -2, 15, 2, 5, 15, -5, 15, -10, 10, -13, 7, -15, 2, -15, -2)
+polygon = PackedVector2Array(-2, -5, 2, -5, 6, 0, 2, 5, -2, 5, -6, 0)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

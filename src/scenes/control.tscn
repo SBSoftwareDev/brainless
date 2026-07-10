@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca5du5sbdgw2t"]
+[gd_scene load_steps=5 format=3 uid="uid://by3idyv3mn488"]
 
-[ext_resource type="Script" uid="uid://2fy1ymhb4egt" path="res://src/scripts/control.gd" id="1_gp5ph"]
+[ext_resource type="Script" path="res://src/scripts/control.gd" id="1_gp5ph"]
 [ext_resource type="Texture2D" uid="uid://dh722kf4b7uh3" path="res://assets/img/ui/nectar.png" id="2_k1qm1"]
 [ext_resource type="PackedScene" uid="uid://cwnf6ld0o4bvt" path="res://src/scenes/price_panel.tscn" id="3_n54qu"]
 
