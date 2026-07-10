@@ -10,11 +10,10 @@ var bee_ready :bool = true
 
 @onready var cell: Sprite2D = $"../../../Cell"
 @onready var collectible_cooldown: Timer = $CollectibleCooldown
-@onready var economy: Node = $"../../../../../../Systems/Economy"
 @onready var path_follow_2d: PathFollow2D = $".."
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var bee_path: Path2D = %BeePath
-@onready var bee_hole: Sprite2D = $"../../../../BeeHole"
+@onready var bee_hole: Sprite2D = $"../../../../../../Entities/BeeHole"
 @onready var bee_sprite: Sprite2D = $"Bee Sprite"
 @onready var progress_bar: TextureProgressBar = $"Bee Sprite/TextureProgressBar"
 @onready var cell_cooldown: Timer = $CellCooldown

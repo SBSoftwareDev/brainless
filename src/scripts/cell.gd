@@ -1,7 +1,7 @@
 extends Sprite2D
 
-@onready var player_stats: Node = $"../../../../Systems/PlayerStats"
-@onready var economy: Node = $"../../../../Systems/Economy"
+@onready var player_stats: Node = $"../../../../../Systems/PlayerStats"
+@onready var economy: Node = $"../../../../../Systems/Economy"
 @onready var cell_cooldown: Timer = $"../BeePath/PathFollow2D/Worker Bee/CellCooldown"
 @onready var worker_bee: CharacterBody2D = $"../BeePath/PathFollow2D/Worker Bee"
 @onready var ready_cell: Sprite2D = $ReadyCell

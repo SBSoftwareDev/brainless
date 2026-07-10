@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://0lht6v7xpbwe"]
+[gd_scene load_steps=26 format=3 uid="uid://0lht6v7xpbwe"]
 
+[ext_resource type="Script" uid="uid://eta2jmjog1wv" path="res://src/scripts/cell_group.gd" id="1_ujprs"]
 [ext_resource type="PackedScene" uid="uid://dxm31vkq2i5rl" path="res://src/scenes/empty_cell.tscn" id="1_whqsf"]
 [ext_resource type="PackedScene" uid="uid://bou1hucryo30g" path="res://src/scenes/bee_and_cell.tscn" id="2_ujprs"]
 [ext_resource type="PackedScene" uid="uid://cihfg5rshngnb" path="res://src/scenes/queen_area.tscn" id="3_ep4rc"]
@@ -96,6 +97,7 @@ resource_local_to_scene = true
 shader = SubResource("Shader_04ddp")
 
 [node name="CellGroup" type="Node2D"]
+script = ExtResource("1_ujprs")
 
 [node name="Empty Cell3" parent="." instance=ExtResource("1_whqsf")]
 material = SubResource("ShaderMaterial_mb256")
