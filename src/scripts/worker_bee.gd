@@ -52,6 +52,12 @@ func enter_bee_hole() -> void:
 	animation_player.play("fade")
 	collectible_cooldown.start()
 
+func leave_cell() -> void:
+	if bee_ready:
+		bee_ready = false
+		direction_away = true
+		cell.clear()
+
 
 ### SIGNALS
 ###func _on_sight_area_body_entered(body: Node2D) -> void:
@@ -85,7 +91,5 @@ func _on_cell_cooldown_timeout() -> void:
 
 
 func _on_collection_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event.is_action_pressed("Select") && bee_ready:
-		bee_ready = false
-		direction_away = true
-		cell.clear()
+	if event.is_action_pressed("Select"):
+		leave_cell()
