@@ -222,6 +222,7 @@ scale = Vector2(4.435484, 3.7824063)
 position = Vector2(461, 324)
 
 [node name="QueenArea" parent="World/Entities" instance=ExtResource("9_h2mn8")]
+z_index = 1
 position = Vector2(462, 323)
 
 [node name="Effects" type="Node2D" parent="World"]

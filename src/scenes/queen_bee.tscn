@@ -7,6 +7,7 @@
 radius = 57.035076
 
 [node name="Queen Bee" type="Sprite2D"]
+z_index = 770
 texture = ExtResource("1_8nxyg")
 offset = Vector2(0, -1.5)
 script = ExtResource("2_7t5e0")
