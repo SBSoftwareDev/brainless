@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cihfg5rshngnb"]
+
+[ext_resource type="PackedScene" uid="uid://dqdlhr4t44qqw" path="res://src/scenes/queen_bee.tscn" id="1_8flua"]
+
+[sub_resource type="Curve2D" id="Curve2D_mhisu"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 31.59974, 0, -31.59974, 75, 0, 40.45724, 0, -40.45724, 0, 0, -75, 0.23939197, -26.333117, -0.23939197, 26.333117, -75, 0, -39.02089, -0.23939197, 39.02089, 0.23939197, 0, 75, 0.9575679, 34.472443, -0.9575679, -34.472443, 75, 0)
+}
+point_count = 5
+
+[node name="QueenArea" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_mhisu")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(74.99208, -0.29486993)
+rotation = -1.5809255
+progress = 0.4605713
+
+[node name="Queen Bee" parent="Path2D/PathFollow2D" instance=ExtResource("1_8flua")]
+position = Vector2(-0.29493475, 0.0049335957)

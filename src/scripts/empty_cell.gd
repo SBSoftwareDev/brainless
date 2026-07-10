@@ -1,12 +1,14 @@
 extends Sprite2D
 
 @onready var empty_cell: Sprite2D = $"."
-@onready var price_panel :Control = $"../../../UILayer/UIRoot/PricePanel"
-@onready var economy: Node = %Economy
+@onready var price_panel :Control = $"../../../../UILayer/UIRoot/PricePanel"
+@onready var economy: Node = $"../../../../Systems/Economy"
 
 
 var mouseInside :bool = false
 var newCell
+
+@onready var cell_group: Node2D = $".."
 
 func _ready() -> void:
 	newCell = preload("res://src/scenes/bee_and_cell.tscn").instantiate()
@@ -34,8 +36,9 @@ func process_input() -> void:
 func replaceSelf() -> void:
 	var bought :bool = economy.buyCell()
 	if bought:
+		cell_group.add_cell_count()
 		newCell.position = empty_cell.position
-		get_node("../../Entities").add_child(newCell)
+		get_parent().add_child(newCell)
 		price_panel.visible = false
 		queue_free()
 	else:
