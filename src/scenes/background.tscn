@@ -10,5 +10,6 @@ gradient = SubResource("Gradient_onqve")
 [node name="Node2D" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(11.365, 1368.34)
+position = Vector2(217, 299.99997)
+scale = Vector2(15.075, 2586.3325)
 texture = SubResource("GradientTexture1D_cep3i")

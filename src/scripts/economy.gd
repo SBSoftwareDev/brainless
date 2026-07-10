@@ -12,10 +12,10 @@ var cell_cooldown_rate_purchases :int = 0
 var collection_price :int = 5
 var collection_rate_purchases :int = 0
 
-@onready var entities: Node2D = $"../../World/Entities"
+@onready var level: Node2D = $"../../World/Level"
 
 func _ready() -> void:
-	bees = entities.find_children("BeeAnd*", "", false).size()
+	bees = level.find_children("BeeAnd*").size()
 
 func addNectar(value :int) -> int:
 	nectar += value
