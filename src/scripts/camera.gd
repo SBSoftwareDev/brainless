@@ -8,10 +8,11 @@ var screen_size :Vector2 = Vector2.ZERO
 
 @onready var camera: Camera2D = $Camera2D
 @onready var bee_hole: Sprite2D = %BeeHole
+@onready var ui_root: Control = $"../../UILayer/UIRoot"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	camera.position = bee_hole.global_position
+	camera.global_position = Vector2(bee_hole.global_position.x + ui_root.get_child(0).size.x / 2, bee_hole.global_position.y)
 	screen_size = get_viewport_rect().size
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

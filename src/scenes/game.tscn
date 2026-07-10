@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://4vqtyrbxi32s"]
+[gd_scene load_steps=11 format=3 uid="uid://4vqtyrbxi32s"]
 
 [ext_resource type="Script" uid="uid://b5qquvw15kre8" path="res://src/scripts/economy.gd" id="1_3rtjt"]
 [ext_resource type="Script" uid="uid://o5dwssmffn71" path="res://src/scripts/player_stats.gd" id="2_lcg6w"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://csdvwte8a7f4g" path="res://src/scenes/camera.tscn" id="3_h2mn8"]
 [ext_resource type="PackedScene" uid="uid://b0jtrhlwf3gct" path="res://src/scenes/bee_hole.tscn" id="4_6e0h8"]
 [ext_resource type="PackedScene" uid="uid://0lht6v7xpbwe" path="res://src/scenes/cell_group.tscn" id="4_gh3at"]
+[ext_resource type="Script" uid="uid://4ol7o4jbvssw" path="res://src/scripts/level.gd" id="4_h2mn8"]
 [ext_resource type="PackedScene" uid="uid://by3idyv3mn488" path="res://src/scenes/control.tscn" id="4_yufto"]
 [ext_resource type="Script" path="res://src/scripts/debug_root.gd" id="7_gh3at"]
 
@@ -34,6 +35,7 @@ visibility_layer = 4
 [node name="Camera" parent="World" instance=ExtResource("3_h2mn8")]
 
 [node name="Level" type="Node2D" parent="World"]
+script = ExtResource("4_h2mn8")
 
 [node name="Background" parent="World/Level" instance=ExtResource("3_flib5")]
 show_behind_parent = true
@@ -41,7 +43,17 @@ light_mask = 512
 visibility_layer = 512
 z_index = -3026
 
-[node name="CellGroup" parent="World/Level" instance=ExtResource("4_gh3at")]
+[node name="CellGroup1" parent="World/Level" instance=ExtResource("4_gh3at")]
+position = Vector2(134, 173)
+
+[node name="CellGroup2" parent="World/Level" instance=ExtResource("4_gh3at")]
+position = Vector2(320, 322)
+
+[node name="CellGroup3" parent="World/Level" instance=ExtResource("4_gh3at")]
+position = Vector2(132, 476)
+
+[node name="CellGroup4" parent="World/Level" instance=ExtResource("4_gh3at")]
+position = Vector2(-61, 325)
 
 [node name="Entities" type="Node2D" parent="World"]
 

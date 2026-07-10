@@ -30,7 +30,7 @@ func _on_area_2d_mouse_exited() -> void:
 	mouseInside = false
 	
 func process_input() -> void:
-	if mouseInside && Input.is_action_pressed("Select"):
+	if mouseInside && Input.is_action_just_pressed("Select"):
 		replaceSelf()
 
 func replaceSelf() -> void:
