@@ -15,6 +15,9 @@ var collection_rate_purchases :int = 0
 var speed_upgrade_purchases :int = 0
 var speed_price :int = 5
 
+var mega_upgrade_price :int = 1000
+var mega_upgrade_purchases :int = 0
+
 @onready var level: Node2D = $"../../World/Level"
 
 func _ready() -> void:
@@ -41,6 +44,9 @@ func getCollectionPrice() -> int:
 	
 func getCollectiblePrice() -> int:
 	return ceil(speed_price + (speed_upgrade_purchases * price_multiplier))
+	
+func getMegaUpgradePrice() -> int:
+	return ceil(mega_upgrade_price + (mega_upgrade_purchases * price_multiplier)) 
 
 func buyCell() -> bool:
 	var price :int = getCellPrice()
@@ -75,6 +81,16 @@ func buySpeedUpgrade() -> bool:
 	if nectar >= price:
 		nectar -= price
 		speed_upgrade_purchases += 1
+		return true
+	else:
+		return false
+
+
+func buyMegaUpgrade() -> bool:
+	var price :int = getMegaUpgradePrice()
+	if nectar >= price:
+		nectar -= price
+		mega_upgrade_purchases += 1
 		return true
 	else:
 		return false

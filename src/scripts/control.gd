@@ -81,11 +81,14 @@ func _on_speed_upgrade_button_pressed() -> void:
 
 
 func _on_hive_bridge_pressed() -> void:
-	var splash_scene = load("res://src/scenes/SplashFade.tscn").instantiate()
-	get_parent().add_child(splash_scene)
-	hive_button.disabled = true
-	hive_button.focus_mode = Control.FOCUS_NONE
-	
+	var bought = economy.buyMegaUpgrade()
+	if bought: 
+		rate_upgrade_label.text = str("Workers collect [color=#E47DFF]", int(player_stats.upgrade_collection_rate()), "[/color] nectar")
+		rate_cost_label.text = str("Cost: ", economy.getCollectionPrice(), " [img width=10%]res://assets/img/ui/nectar.png[/img]")
+		var splash_scene = load("res://src/scenes/SplashFade.tscn").instantiate()
+		get_parent().add_child(splash_scene)
+		hive_button.disabled = true
+		hive_button.focus_mode = Control.FOCUS_NONE
 
 
 func _on_royal_jelly_pressed() -> void:
