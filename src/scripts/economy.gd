@@ -4,7 +4,7 @@ var nectar :int = 1000
 var bees :int = 0
 
 var cell_price = 4
-var price_multiplier :float = 2.75
+var price_multiplier :float = 0.01
 var cells_purchased :int = 0
 
 var cell_cooldown_price :int = 5
@@ -28,7 +28,7 @@ func getBeeAmount() -> int:
 	return bees
 	
 func getCellPrice() -> int:
-	return ceil(cell_price + (cells_purchased * price_multiplier))
+	return ceil(pow(cell_price * (1 + price_multiplier), cells_purchased))
 	
 func getCellCooldownPrice() -> int:
 	return ceil(cell_cooldown_price + (cell_cooldown_rate_purchases * price_multiplier))
