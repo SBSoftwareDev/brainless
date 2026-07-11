@@ -4,7 +4,6 @@ const SPEED :float = 400.0
 
 var target :Vector2 = Vector2.ZERO
 var movement_direction :bool = true
-var collectible_cooldown_wait_time :float = 2.0
 var direction_away :bool = false
 var bee_ready :bool = true
 
@@ -17,6 +16,8 @@ var bee_ready :bool = true
 @onready var bee_sprite: Sprite2D = $"Bee Sprite"
 @onready var progress_bar: TextureProgressBar = $"Bee Sprite/TextureProgressBar"
 @onready var cell_cooldown: Timer = $CellCooldown
+@onready var player_stats: Node = $"../../../../../../../Systems/PlayerStats"
+
 
 ## INITIALIZATION
 func _ready() -> void:
@@ -24,6 +25,7 @@ func _ready() -> void:
 	global_position = cell.global_position
 	bee_path.curve.add_point(bee_path.to_local(target))
 	scale = Vector2(1, 1)
+	collectible_cooldown.wait_time = player_stats.get_collectible_base_wait_time()
 
 
 
@@ -49,6 +51,7 @@ func start_progress_bar() -> void:
 
 func enter_bee_hole() -> void:
 	animation_player.play("fade")
+	collectible_cooldown.wait_time = player_stats.get_collectible_wait_time()
 	collectible_cooldown.start()
 
 func leave_cell() -> void:

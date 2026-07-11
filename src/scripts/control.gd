@@ -6,17 +6,20 @@ extends Control
 @onready var nectar_amount_label: RichTextLabel = %NectarAmountLabel
 @onready var bee_amount_label: RichTextLabel = %BeeAmountLabel
 @onready var price_panel: Control = $PricePanel
-@onready var cell_cooldown_label: Label = $Panel/VBoxContainer/CellCooldownUpgradePanel2/Panel/VBoxContainer/Label
+@onready var cell_cooldown_label: RichTextLabel = $Panel/VBoxContainer/CellCooldownUpgradePanel3/Panel/MarginContainer/HBox2/VBoxContainer/Label2
 @onready var rate_upgrade_label: RichTextLabel = $"Panel/VBoxContainer/RateUpgradePanel/Panel/MarginContainer/HBox/VBoxContainer/Label2"
-@onready var rate_upgrade_button: Button = $Panel/VBoxContainer/RateUpgradePanel/Panel/VBoxContainer/RateUpgradeButton
-@onready var cell_upgrade_button: Button = $Panel/VBoxContainer/CellCooldownUpgradePanel2/Panel/VBoxContainer/CellUpgradeButton
-
-@onready var rate_panel: Panel = $Panel/VBoxContainer/RateUpgradePanel/Panel
+@onready var rate_upgrade_button: Button = $Panel/VBoxContainer/RateUpgradePanel/Panel/MarginContainer/HBox/RateUpgradeButton
+@onready var cell_upgrade_button: Button = $Panel/VBoxContainer/CellCooldownUpgradePanel3/Panel/MarginContainer/HBox2/CellUpgradeButton
+@onready var speed_upgrade_label: RichTextLabel = $Panel/VBoxContainer/SpeedUpgradePanel/Panel/MarginContainer/HBox2/VBoxContainer/Label2
 
 func _ready() -> void:
 	nectar_amount_label.text = str("[img]res://assets/img/ui/nectar.png[/img] 0")
 	bee_amount_label.text = str("[img]res://src/scenes/worker_bee.tscn::AtlasTexture_xt75n[/img] 0")
 	
+	#Set initial labels of purchase panels
+	cell_cooldown_label.text = str("Finish resting in [color=#E47DFF]", (player_stats.get_cell_cooldown_rate()), "[/color] secs")
+	rate_upgrade_label.text = str("Workers collect [color=#E47DFF]", int(player_stats.get_collection_rate()), "[/color] nectar")
+	speed_upgrade_label.text = str("They return in [color=#E47DFF]", (player_stats.get_collectible_wait_time()), "[/color] secs")
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,10 +38,11 @@ func updatePricePanel() -> void:
 
 
 func _on_cell_upgrade_button_pressed() -> void:
-	var bought = economy.buyCellCooldownUpgrade()
-	if bought:
-		cell_cooldown_label.text = str("Bee Cooldown Speed: ", player_stats.upgrade_cell_cooldown_rate(), "x")
-		#cell_upgrade_button.text = str("Price: ", economy.getCellCooldownPrice())
+	if player_stats.get_total_wait_time() >= 0.1:
+		var bought = economy.buyCellCooldownUpgrade()
+		if bought:
+			cell_cooldown_label.text = str("Finish resting in [color=#E47DFF]", player_stats.upgrade_cell_cooldown_rate(), "[/color] secs")
+			#cell_upgrade_button.text = str("Price: ", economy.getCellCooldownPrice())
 		
 
 
@@ -49,9 +53,8 @@ func _on_rate_upgrade_button_pressed() -> void:
 		#rate_upgrade_button.text = str("Price: ", economy.getCollectionPrice())
 
 
-func _on_panel_mouse_entered() -> void:
-	price_panel.visible = true
-
-
-func _on_panel_mouse_exited() -> void:
-	price_panel.visible = false
+func _on_speed_upgrade_button_pressed() -> void:
+	if player_stats.get_collectible_wait_time() >= 0.1:
+		var bought = economy.buySpeedUpgrade()
+		if bought: 
+			speed_upgrade_label.text = str("They return in [color=#E47DFF]", (player_stats.upgrade_collectible_wait_time()), "[/color] secs")

@@ -81,6 +81,7 @@ offset_bottom = 40.0
 [node name="DebugLayer" type="CanvasLayer" parent="."]
 process_mode = 3
 layer = 5
+visible = false
 
 [node name="DebugRoot" type="Control" parent="DebugLayer"]
 layout_mode = 3
