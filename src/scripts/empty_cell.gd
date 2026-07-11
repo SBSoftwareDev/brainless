@@ -3,7 +3,7 @@ extends Sprite2D
 @onready var empty_cell: Sprite2D = $"."
 @onready var price_panel :Control = $"../../../../UILayer/UIRoot/PricePanel"
 @onready var economy: Node = $"../../../../Systems/Economy"
-
+@onready var level: Node2D = $"../.."
 
 var mouseInside :bool = false
 var newCell
@@ -41,5 +41,8 @@ func replaceSelf() -> void:
 		get_parent().add_child(newCell)
 		price_panel.visible = false
 		queue_free()
+		
+		if level.checkAllBees():
+			get_tree().change_scene_to_file("res://src/scenes/end.tscn")
 	else:
 		return

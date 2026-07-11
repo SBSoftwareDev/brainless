@@ -22,6 +22,10 @@ func add_cell_count() -> void:
 		queen_area.find_child("Queen*").activate_queen()
 
 
+func get_cell_purchases() -> int:
+	return cell_purchases
+
+
 func add_middle_bee() -> void:
 	var middle_cell :Node2D = find_child("Empty Cell Middle")
 	first_bee.position = middle_cell.position
