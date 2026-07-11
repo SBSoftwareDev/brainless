@@ -68,6 +68,7 @@ scale = Vector2(4.435484, 3.7824063)
 process_mode = 1
 
 [node name="UIRoot" parent="UILayer" instance=ExtResource("4_yufto")]
+unique_name_in_owner = true
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 process_mode = 2
