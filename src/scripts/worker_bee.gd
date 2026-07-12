@@ -26,8 +26,8 @@ func _ready() -> void:
 	#scale = Vector2(1, 1)
 	collectible_cooldown.wait_time = player_stats.get_collectible_base_wait_time()
 	
-	#rotation = 0
 	bee_path.rotate(get_angle_to(bee_hole.global_position))
+	#path_follow_2d.rotates = false
 	bee_path.curve.add_point(bee_path.to_local(target))
 
 
@@ -80,7 +80,7 @@ func _on_timer_timeout() -> void:
 	animation_player.play("fadeBack")
 	stop = false
 	direction_away = false
-	#bee_sprite.flip_h = false
+	bee_sprite.flip_h = true
 	#target = cell.global_position
 	
 		
@@ -89,7 +89,7 @@ func _on_cell_cooldown_timeout() -> void:
 	#direction_away = true
 	bee_ready = true
 	cell.ready_up()
-	#bee_sprite.flip_h = true
+	bee_sprite.flip_h = false
 	#target = bee_hole.global_position
 
 

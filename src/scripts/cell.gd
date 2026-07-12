@@ -6,6 +6,7 @@ extends Sprite2D
 @onready var worker_bee: CharacterBody2D = $"../BeePath/PathFollow2D/Worker Bee"
 @onready var ready_cell: Sprite2D = $ReadyCell
 @onready var progress_bar: TextureProgressBar = $TextureProgressBar
+@onready var path_follow_2d: PathFollow2D = $"../BeePath/PathFollow2D"
 
 var bee_inside :bool = true
 
@@ -32,6 +33,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	var parent :Node2D = body.get_parent().get_parent().get_parent()
 	if parent && parent == get_parent() && bee_inside == false:
 		bee_inside = true
+		#path_follow_2d.rotates = false
 		economy.addNectar(player_stats.get_collection_rate())
 		cell_cooldown.wait_time = player_stats.get_total_wait_time()
 		cell_cooldown.start()
@@ -42,3 +44,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_exited(_body: Node2D) -> void:
 	bee_inside = false
+	#path_follow_2d.rotates = true

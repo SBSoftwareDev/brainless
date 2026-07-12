@@ -49,7 +49,6 @@ _data = {
 
 [node name="BeePath" type="Path2D" parent="."]
 unique_name_in_owner = true
-rotation = 3.0717795
 curve = SubResource("Curve2D_ekq2b")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="BeePath"]
