@@ -15,7 +15,6 @@ var bee_ready :bool = true
 @onready var bee_path: Path2D = %BeePath
 @onready var bee_hole: Sprite2D = $"../../../../../../Entities/BeeHole"
 @onready var bee_sprite: Sprite2D = $"Bee Sprite"
-@onready var progress_bar: TextureProgressBar = $"Bee Sprite/TextureProgressBar"
 @onready var cell_cooldown: Timer = $CellCooldown
 @onready var player_stats: Node = $"../../../../../../../Systems/PlayerStats"
 
@@ -37,7 +36,6 @@ func _ready() -> void:
 ## MOVEMENT & PHYSICS
 func _physics_process(delta: float) -> void:
 	process_movement(delta)
-	progress_bar.value = (cell_cooldown.time_left * 100) / cell_cooldown.wait_time
 	
 
 func process_movement(delta: float) -> void:
@@ -47,10 +45,6 @@ func process_movement(delta: float) -> void:
 	elif !direction_away && !stop:
 		path_follow_2d.progress += -SPEED * delta
 		#global_position = global_position.lerp(target, SPEED * delta)
-
-
-func start_progress_bar() -> void:
-	progress_bar.value = 100
 
 
 func enter_bee_hole() -> void:
