@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://28t0ginpj7e5"]
+[gd_scene load_steps=8 format=3 uid="uid://28t0ginpj7e5"]
 
 [ext_resource type="Script" uid="uid://b7gc6671y4s4c" path="res://src/scripts/menu.gd" id="1_h7v81"]
 [ext_resource type="Texture2D" uid="uid://bvjot32pr4rma" path="res://assets/img/spritesheet/title_image.png" id="2_nr8cr"]
@@ -26,6 +26,51 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7v81"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nr8cr"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_echhp"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_h7v81")
@@ -75,6 +120,9 @@ offset_bottom = 250.0
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_50bkv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h7v81")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nr8cr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_echhp")
 text = "Play"
 
 [connection signal="pressed" from="Control/TextureRect/MarginContainer/Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
