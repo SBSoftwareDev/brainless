@@ -5,6 +5,7 @@ const SPEED :float = 400.0
 var target :Vector2 = Vector2.ZERO
 var movement_direction :bool = true
 var direction_away :bool = false
+var stop :bool = true
 var bee_ready :bool = true
 
 @onready var cell: Sprite2D = $"../../../Cell"
@@ -23,9 +24,12 @@ var bee_ready :bool = true
 func _ready() -> void:
 	target = bee_hole.global_position
 	global_position = cell.global_position
-	bee_path.curve.add_point(bee_path.to_local(target))
-	scale = Vector2(1, 1)
+	#scale = Vector2(1, 1)
 	collectible_cooldown.wait_time = player_stats.get_collectible_base_wait_time()
+	
+	#rotation = 0
+	bee_path.rotate(get_angle_to(bee_hole.global_position))
+	bee_path.curve.add_point(bee_path.to_local(target))
 
 
 
@@ -37,10 +41,10 @@ func _physics_process(delta: float) -> void:
 	
 
 func process_movement(delta: float) -> void:
-	if direction_away:
+	if direction_away && !stop:
 		#global_position = global_position.lerp(target, SPEED * delta)
 		path_follow_2d.progress += SPEED * delta
-	else:
+	elif !direction_away && !stop:
 		path_follow_2d.progress += -SPEED * delta
 		#global_position = global_position.lerp(target, SPEED * delta)
 
@@ -51,12 +55,14 @@ func start_progress_bar() -> void:
 
 func enter_bee_hole() -> void:
 	animation_player.play("fade")
+	stop = true
 	collectible_cooldown.wait_time = player_stats.get_collectible_wait_time()
 	collectible_cooldown.start()
 
 func leave_cell() -> void:
 	if bee_ready:
 		bee_ready = false
+		stop = false
 		direction_away = true
 		cell.clear()
 
@@ -78,8 +84,9 @@ func _on_collection_area_body_entered(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	animation_player.play("fadeBack")
+	stop = false
 	direction_away = false
-	bee_sprite.flip_h = false
+	#bee_sprite.flip_h = false
 	#target = cell.global_position
 	
 		
@@ -88,7 +95,7 @@ func _on_cell_cooldown_timeout() -> void:
 	#direction_away = true
 	bee_ready = true
 	cell.ready_up()
-	bee_sprite.flip_h = true
+	#bee_sprite.flip_h = true
 	#target = bee_hole.global_position
 
 

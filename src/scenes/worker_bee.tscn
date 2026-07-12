@@ -26,7 +26,6 @@ script = ExtResource("1_xt75n")
 z_index = 100
 texture_filter = 1
 texture = SubResource("AtlasTexture_xt75n")
-flip_h = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Bee Sprite"]
 anchors_preset = 5

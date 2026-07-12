@@ -31,6 +31,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		cell_cooldown.wait_time = player_stats.get_total_wait_time()
 		cell_cooldown.start()
 		worker_bee.start_progress_bar()
+		
+		#worker_bee.rotation = 0
 
 
 func _on_area_2d_body_exited(_body: Node2D) -> void:
