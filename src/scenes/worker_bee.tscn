@@ -1,11 +1,43 @@
-[gd_scene load_steps=7 format=3 uid="uid://cl03cvs71awg0"]
+[gd_scene load_steps=11 format=3 uid="uid://cl03cvs71awg0"]
 
 [ext_resource type="Script" uid="uid://c5i02653f7y6o" path="res://src/scripts/worker_bee.gd" id="1_xt75n"]
-[ext_resource type="Texture2D" uid="uid://oo185yei5855" path="res://assets/img/worker/Worker_Bee.png" id="2_xt75n"]
+[ext_resource type="Texture2D" uid="uid://4jlhgdir8r78" path="res://assets/img/spritesheet/Bee.png" id="2_xt75n"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xt75n"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq0ao"]
 atlas = ExtResource("2_xt75n")
-region = Rect2(2, 7, 29, 18)
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hi720"]
+atlas = ExtResource("2_xt75n")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gm1f"]
+atlas = ExtResource("2_xt75n")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4plu4"]
+atlas = ExtResource("2_xt75n")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3cvq2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq0ao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hi720")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gm1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4plu4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iq0ao"]
 radius = 15.033297
@@ -21,10 +53,12 @@ height = 36.0
 input_pickable = true
 script = ExtResource("1_xt75n")
 
-[node name="Bee Sprite" type="Sprite2D" parent="."]
+[node name="Bee Sprite" type="AnimatedSprite2D" parent="."]
 z_index = 100
 texture_filter = 1
-texture = SubResource("AtlasTexture_xt75n")
+sprite_frames = SubResource("SpriteFrames_3cvq2")
+autoplay = "default"
+frame_progress = 0.0053046164
 
 [node name="Collection Area" type="Area2D" parent="."]
 

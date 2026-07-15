@@ -26,7 +26,7 @@ extends Control
 
 func _ready() -> void:
 	nectar_amount_label.text = str("[img]res://assets/img/ui/nectar.png[/img] 0")
-	bee_amount_label.text = str("[img]res://src/scenes/worker_bee.tscn::AtlasTexture_xt75n[/img] 0")
+	bee_amount_label.text = str("[img]res://assets/img/worker/Bee_Head.png[/img] 0")
 	
 	#Cost labels
 	rate_cost_label.text = str("Cost: ", economy.getCollectionPrice(), " [img width=10%]res://assets/img/ui/nectar.png[/img]")
@@ -42,7 +42,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	nectar_amount_label.text = str("[img]res://assets/img/ui/nectar.png[/img] ", economy.getNectarAmount() )
-	bee_amount_label.text = str("[img]res://src/scenes/worker_bee.tscn::AtlasTexture_xt75n[/img] ", economy.getBeeAmount())
+	bee_amount_label.text = str("[img]res://assets/img/worker/Bee_Head.png[/img] ", economy.getBeeAmount())
 	
 	updatePricePanel()
 	

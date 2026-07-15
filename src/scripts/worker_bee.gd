@@ -14,7 +14,7 @@ var bee_ready :bool = true
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var bee_path: Path2D = %BeePath
 @onready var bee_hole: Sprite2D = $"../../../../../../Entities/BeeHole"
-@onready var bee_sprite: Sprite2D = $"Bee Sprite"
+@onready var bee_sprite: AnimatedSprite2D = $"Bee Sprite"
 @onready var cell_cooldown: Timer = $CellCooldown
 @onready var player_stats: Node = $"../../../../../../../Systems/PlayerStats"
 
