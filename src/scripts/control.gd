@@ -92,21 +92,33 @@ func _on_hive_bridge_pressed() -> void:
 
 
 func _on_royal_jelly_pressed() -> void:
-	var splash_scene = load("res://src/scenes/SplashFade.tscn").instantiate()
-	get_parent().add_child(splash_scene)
-	royal_jelly_button.disabled = true
-	royal_jelly_button.focus_mode = Control.FOCUS_NONE
+	var bought = economy.buyMegaUpgrade()
+	if bought: 
+		rate_upgrade_label.text = str("Workers collect [color=#E47DFF]", int(player_stats.upgrade_collection_rate()), "[/color] nectar")
+		rate_cost_label.text = str("Cost: ", economy.getCollectionPrice(), " [img width=10%]res://assets/img/ui/nectar.png[/img]")
+		var splash_scene = load("res://src/scenes/SplashFade.tscn").instantiate()
+		get_parent().add_child(splash_scene)
+		royal_jelly_button.disabled = true
+		royal_jelly_button.focus_mode = Control.FOCUS_NONE
 
 
 func _on_mega_flora_pressed() -> void:
-	var splash_scene = load("res://src/scenes/SplashFade.tscn").instantiate()
-	get_parent().add_child(splash_scene)
-	mega_flora_button.disabled = true
-	mega_flora_button.focus_mode = Control.FOCUS_NONE
+	var bought = economy.buyMegaUpgrade()
+	if bought: 
+		rate_upgrade_label.text = str("Workers collect [color=#E47DFF]", int(player_stats.upgrade_collection_rate()), "[/color] nectar")
+		rate_cost_label.text = str("Cost: ", economy.getCollectionPrice(), " [img width=10%]res://assets/img/ui/nectar.png[/img]")
+		var splash_scene = load("res://src/scenes/SplashFade.tscn").instantiate()
+		get_parent().add_child(splash_scene)
+		mega_flora_button.disabled = true
+		mega_flora_button.focus_mode = Control.FOCUS_NONE
 
 
 func _on_triple_cells_pressed() -> void:
-	var splash_scene = load("res://src/scenes/SplashFade.tscn").instantiate()
-	get_parent().add_child(splash_scene)
-	triple_cells_button.disabled = true
-	triple_cells_button.focus_mode = Control.FOCUS_NONE
+	var bought = economy.buyMegaUpgrade()
+	if bought: 
+		rate_upgrade_label.text = str("Workers collect [color=#E47DFF]", int(player_stats.upgrade_collection_rate()), "[/color] nectar")
+		rate_cost_label.text = str("Cost: ", economy.getCollectionPrice(), " [img width=10%]res://assets/img/ui/nectar.png[/img]")
+		var splash_scene = load("res://src/scenes/SplashFade.tscn").instantiate()
+		get_parent().add_child(splash_scene)
+		triple_cells_button.disabled = true
+		triple_cells_button.focus_mode = Control.FOCUS_NONE
