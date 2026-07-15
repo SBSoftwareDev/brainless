@@ -42,24 +42,25 @@ show_behind_parent = true
 light_mask = 512
 visibility_layer = 512
 z_index = -3026
+position = Vector2(76, -9)
 
 [node name="CellGroup1" parent="World/Level" instance=ExtResource("4_gh3at")]
-position = Vector2(134, 173)
+position = Vector2(204, 99)
 
 [node name="CellGroup2" parent="World/Level" instance=ExtResource("4_gh3at")]
-position = Vector2(320, 322)
+position = Vector2(550, 328)
 
 [node name="CellGroup3" parent="World/Level" instance=ExtResource("4_gh3at")]
-position = Vector2(132, 476)
+position = Vector2(144, 550)
 
 [node name="CellGroup4" parent="World/Level" instance=ExtResource("4_gh3at")]
-position = Vector2(-61, 325)
+position = Vector2(-212, 319)
 
 [node name="Entities" type="Node2D" parent="World"]
 
 [node name="BeeHole" parent="World/Entities" instance=ExtResource("4_6e0h8")]
 unique_name_in_owner = true
-position = Vector2(132, 322.00003)
+position = Vector2(218, 321.00003)
 scale = Vector2(4.435484, 3.7824063)
 
 [node name="Effects" type="Node2D" parent="World"]

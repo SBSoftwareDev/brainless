@@ -1,6 +1,6 @@
 extends Node2D
 
-const OFFSET :float = 275.0
+const OFFSET :float = 250.0
 
 @onready var bee_hole: Sprite2D = %BeeHole
 
