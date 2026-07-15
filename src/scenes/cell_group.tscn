@@ -1,0 +1,187 @@
+[gd_scene load_steps=25 format=3 uid="uid://0lht6v7xpbwe"]
+
+[ext_resource type="Script" uid="uid://eta2jmjog1wv" path="res://src/scripts/cell_group.gd" id="1_ujprs"]
+[ext_resource type="PackedScene" uid="uid://dxm31vkq2i5rl" path="res://src/scenes/empty_cell.tscn" id="1_whqsf"]
+[ext_resource type="PackedScene" uid="uid://cihfg5rshngnb" path="res://src/scenes/queen_area.tscn" id="3_ep4rc"]
+
+[sub_resource type="Shader" id="Shader_04ddp"]
+code = "shader_type canvas_item;
+/*
+
+uniform float light = 1.0;
+
+void fragment() {
+	COLOR = texture(TEXTURE, UV);
+	COLOR.a = light;
+}*/"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mb256"]
+resource_local_to_scene = true
+shader = SubResource("Shader_04ddp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m7g2n"]
+resource_local_to_scene = true
+shader = SubResource("Shader_04ddp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bs3ef"]
+resource_local_to_scene = true
+shader = SubResource("Shader_04ddp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j1vbr"]
+resource_local_to_scene = true
+shader = SubResource("Shader_04ddp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_thu3x"]
+resource_local_to_scene = true
+shader = SubResource("Shader_04ddp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q0ubt"]
+resource_local_to_scene = true
+shader = SubResource("Shader_04ddp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4xdir"]
+resource_local_to_scene = true
+shader = SubResource("Shader_04ddp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k55bq"]
+resource_local_to_scene = true
+shader = SubResource("Shader_04ddp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yne0r"]
+resource_local_to_scene = true
+shader = SubResource("Shader_04ddp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jbcpf"]
+resource_local_to_scene = true
+shader = SubResource("Shader_04ddp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qqteq"]
+resource_local_to_scene = true
+shader = SubResource("Shader_04ddp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ds5gv"]
+resource_local_to_scene = true
+shader = SubResource("Shader_04ddp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hdbr0"]
+resource_local_to_scene = true
+shader = SubResource("Shader_04ddp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1kpgy"]
+resource_local_to_scene = true
+shader = SubResource("Shader_04ddp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kihmu"]
+resource_local_to_scene = true
+shader = SubResource("Shader_04ddp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_trttp"]
+resource_local_to_scene = true
+shader = SubResource("Shader_04ddp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w7c26"]
+resource_local_to_scene = true
+shader = SubResource("Shader_04ddp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mbxt3"]
+resource_local_to_scene = true
+shader = SubResource("Shader_04ddp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t7cm8"]
+resource_local_to_scene = true
+shader = SubResource("Shader_04ddp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_81qq3"]
+resource_local_to_scene = true
+shader = SubResource("Shader_04ddp")
+
+[node name="CellGroup" type="Node2D"]
+script = ExtResource("1_ujprs")
+
+[node name="Empty Cell3" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_mb256")
+position = Vector2(-0.49700147, -51.502502)
+
+[node name="Empty Cell4" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_m7g2n")
+position = Vector2(31.502998, -77.5025)
+
+[node name="Empty Cell5" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_bs3ef")
+position = Vector2(63.50306, 0.49749756)
+
+[node name="Empty Cell6" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_j1vbr")
+position = Vector2(63.503, -51.502502)
+
+[node name="Empty Cell17" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_thu3x")
+position = Vector2(95.50298, -25.502502)
+
+[node name="Empty Cell9" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_q0ubt")
+position = Vector2(-32.497, -77.50249)
+
+[node name="Empty Cell10" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_4xdir")
+position = Vector2(-64.49697, -51.502502)
+
+[node name="Empty Cell11" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_k55bq")
+position = Vector2(-96.497, -25.502502)
+
+[node name="Empty Cell7" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_yne0r")
+position = Vector2(-0.49700147, 52.497498)
+
+[node name="Empty Cell19" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_jbcpf")
+position = Vector2(-32.497, 26.4975)
+
+[node name="Empty Cell20" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_qqteq")
+position = Vector2(31.502998, 26.4975)
+
+[node name="Empty Cell21" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_ds5gv")
+position = Vector2(31.502998, -25.502502)
+
+[node name="Empty Cell22" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_hdbr0")
+position = Vector2(-32.497, -25.502502)
+
+[node name="Empty Cell14" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_1kpgy")
+position = Vector2(31.502998, 78.49748)
+
+[node name="Empty Cell15" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_kihmu")
+position = Vector2(63.503, 52.497528)
+
+[node name="Empty Cell16" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_trttp")
+position = Vector2(95.503044, 26.4975)
+
+[node name="Empty Cell13" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_w7c26")
+position = Vector2(-32.497, 78.49748)
+
+[node name="Empty Cell8" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_mbxt3")
+position = Vector2(-64.497, 0.49749756)
+
+[node name="Empty Cell12" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_t7cm8")
+position = Vector2(-64.497, 52.497498)
+
+[node name="Empty Cell18" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_81qq3")
+position = Vector2(-96.49697, 26.4975)
+
+[node name="Empty Cell Middle" parent="." instance=ExtResource("1_whqsf")]
+material = SubResource("ShaderMaterial_81qq3")
+position = Vector2(-9.094947e-13, 0.9999999)
+
+[node name="QueenArea" parent="." instance=ExtResource("3_ep4rc")]
+z_index = 1
+position = Vector2(0.50296783, -0.5025482)

@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://loe2mv1kbljx"]
+
+[ext_resource type="Script" uid="uid://b16ey44k3l880" path="res://src/scripts/splash.gd" id="1_00mga"]
+[ext_resource type="Shader" uid="uid://bjxrmftixjp75" path="res://src/scripts/splashfade.gdshader" id="2_ilhx7"]
+[ext_resource type="Texture2D" uid="uid://5axi2vjjgern" path="res://assets/img/spritesheet/MegaUpgradeSplash.png" id="3_1dvcm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bw4q3"]
+shader = ExtResource("2_ilhx7")
+shader_parameter/fade_color = Vector4(0, 0, 0, 0)
+shader_parameter/fade_intensity = 0.065
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_00mga")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_bw4q3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_1dvcm")
+expand_mode = 2
+
+[node name="IdleTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="FadeTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="FadeTimer" to="." method="_on_fade_timer_timeout"]

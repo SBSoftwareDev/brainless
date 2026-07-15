@@ -1,0 +1,461 @@
+[gd_scene load_steps=15 format=3 uid="uid://by3idyv3mn488"]
+
+[ext_resource type="Script" uid="uid://2fy1ymhb4egt" path="res://src/scripts/control.gd" id="1_gp5ph"]
+[ext_resource type="Texture2D" uid="uid://b5k832ub84p2u" path="res://assets/img/ui/nectar_upgrade.png" id="2_d3vkj"]
+[ext_resource type="Texture2D" uid="uid://due1576v6dxnm" path="res://assets/img/ui/nectar_upgrade_speed.png" id="3_0rqde"]
+[ext_resource type="Texture2D" uid="uid://3guvieubuwy8" path="res://assets/img/spritesheet/HiveBridge.png" id="3_210pg"]
+[ext_resource type="PackedScene" uid="uid://cwnf6ld0o4bvt" path="res://src/scenes/price_panel.tscn" id="3_n54qu"]
+[ext_resource type="Texture2D" uid="uid://dx4cibiih8nay" path="res://assets/img/ui/cell_upgrade_speed.png" id="4_dmqt0"]
+[ext_resource type="Texture2D" uid="uid://dlknyeiv5bvmo" path="res://assets/img/spritesheet/Icons_0.3.png" id="4_hy5tx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hy5tx"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.21960784, 0.12156863, 0.03137255, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.8, 0.8, 0.22352941, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1qm1"]
+bg_color = Color(0.9019608, 0.7019608, 0.50980395, 0.5254902)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.55722296, 0.3813506, 0.20049214, 0.5254902)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rqde"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmqt0"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
+corner_detail = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3vkj"]
+atlas = ExtResource("4_hy5tx")
+region = Rect2(85, 7, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rqde"]
+atlas = ExtResource("4_hy5tx")
+region = Rect2(20, 2, 16, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmqt0"]
+atlas = ExtResource("4_hy5tx")
+region = Rect2(60, 4, 21, 18)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_gp5ph")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hy5tx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.5
+offset_top = -294.0
+offset_right = 97.5
+offset_bottom = 294.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="NectarAmountLabel" type="RichTextLabel" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 2
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 21
+bbcode_enabled = true
+text = "N:"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="BeeAmountLabel" type="RichTextLabel" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 2
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 21
+bbcode_enabled = true
+text = "B:"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="RateUpgradePanel" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer/RateUpgradePanel"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k1qm1")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/RateUpgradePanel/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBox" type="HBoxContainer" parent="Panel/VBoxContainer/RateUpgradePanel/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RateUpgradeButton" type="Button" parent="Panel/VBoxContainer/RateUpgradePanel/Panel/MarginContainer/HBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("2_d3vkj")
+icon_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/RateUpgradePanel/Panel/MarginContainer/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/RateUpgradePanel/Panel/MarginContainer/HBox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 14
+text = "Better Returns"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="RichTextLabel" parent="Panel/VBoxContainer/RateUpgradePanel/Panel/MarginContainer/HBox/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "Workers collect [color=#E47DFF]X[/color] nectar"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostLabel" type="RichTextLabel" parent="Panel/VBoxContainer/RateUpgradePanel/Panel/MarginContainer/HBox/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "Cost: 1"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="SpeedUpgradePanel" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer/SpeedUpgradePanel"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k1qm1")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/SpeedUpgradePanel/Panel"]
+layout_mode = 0
+offset_right = 185.0
+offset_bottom = 75.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBox2" type="HBoxContainer" parent="Panel/VBoxContainer/SpeedUpgradePanel/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SpeedUpgradeButton" type="Button" parent="Panel/VBoxContainer/SpeedUpgradePanel/Panel/MarginContainer/HBox2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("3_0rqde")
+icon_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/SpeedUpgradePanel/Panel/MarginContainer/HBox2"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/SpeedUpgradePanel/Panel/MarginContainer/HBox2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 14
+text = "Fast Workers"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="RichTextLabel" parent="Panel/VBoxContainer/SpeedUpgradePanel/Panel/MarginContainer/HBox2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "They return in [color=#E47DFF]X[/color] seconds"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostLabel" type="RichTextLabel" parent="Panel/VBoxContainer/SpeedUpgradePanel/Panel/MarginContainer/HBox2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "Cost: 1"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="CellCooldownUpgradePanel3" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer/CellCooldownUpgradePanel3"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k1qm1")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/CellCooldownUpgradePanel3/Panel"]
+layout_mode = 0
+offset_right = 185.0
+offset_bottom = 75.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBox2" type="HBoxContainer" parent="Panel/VBoxContainer/CellCooldownUpgradePanel3/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="CellUpgradeButton" type="Button" parent="Panel/VBoxContainer/CellCooldownUpgradePanel3/Panel/MarginContainer/HBox2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+icon = ExtResource("4_dmqt0")
+icon_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/CellCooldownUpgradePanel3/Panel/MarginContainer/HBox2"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/CellCooldownUpgradePanel3/Panel/MarginContainer/HBox2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 14
+text = "Cozy Beds"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="RichTextLabel" parent="Panel/VBoxContainer/CellCooldownUpgradePanel3/Panel/MarginContainer/HBox2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "Finish resting in [color=#E47DFF]X[/color] seconds"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostLabel" type="RichTextLabel" parent="Panel/VBoxContainer/CellCooldownUpgradePanel3/Panel/MarginContainer/HBox2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "Cost: 1"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 21
+bbcode_enabled = true
+text = "[wave amp=10.0 freq=5.0 connected=1]Mega Upgrades[/wave]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(67.51, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_0rqde")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Button/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_210pg")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Button/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.7294118, 1)
+text = "Hive Bridge"
+horizontal_alignment = 1
+
+[node name="Button2" type="Button" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_dmqt0")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Button2/VBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_d3vkj")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Button2/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.7294118, 1)
+text = "Royal Jelly"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_0rqde")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Button/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_0rqde")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Button/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.7294118, 1)
+text = "Mega Flora"
+
+[node name="Button2" type="Button" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_0rqde")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Button2/VBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_dmqt0")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Button2/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.7294118, 1)
+text = "Triple Cells"
+
+[node name="PricePanel" parent="." instance=ExtResource("3_n54qu")]
+layout_mode = 1
+
+[connection signal="pressed" from="Panel/VBoxContainer/RateUpgradePanel/Panel/MarginContainer/HBox/RateUpgradeButton" to="." method="_on_rate_upgrade_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/SpeedUpgradePanel/Panel/MarginContainer/HBox2/SpeedUpgradeButton" to="." method="_on_speed_upgrade_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/CellCooldownUpgradePanel3/Panel/MarginContainer/HBox2/CellUpgradeButton" to="." method="_on_cell_upgrade_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Button" to="." method="_on_hive_bridge_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Button2" to="." method="_on_royal_jelly_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Button" to="." method="_on_mega_flora_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Button2" to="." method="_on_triple_cells_pressed"]

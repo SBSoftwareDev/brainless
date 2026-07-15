@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxm31vkq2i5rl"]
+
+[ext_resource type="Texture2D" uid="uid://dlknyeiv5bvmo" path="res://assets/img/spritesheet/Icons_0.3.png" id="1_3bbs8"]
+[ext_resource type="Script" uid="uid://dnnkyjqmuicoc" path="res://src/scripts/empty_cell.gd" id="3_rjsee"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rjsee"]
+resource_local_to_scene = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjsee"]
+atlas = ExtResource("1_3bbs8")
+region = Rect2(91, 30, 13, 11)
+
+[node name="Empty Cell" type="Sprite2D"]
+material = SubResource("ShaderMaterial_rjsee")
+scale = Vector2(3.462, 3.545)
+texture = SubResource("AtlasTexture_rjsee")
+script = ExtResource("3_rjsee")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(15, 15)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+position = Vector2(-15, -15)
+polygon = PackedVector2Array(-2, -5, 2, -5, 6, 0, 2, 5, -2, 5, -6, 0)
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

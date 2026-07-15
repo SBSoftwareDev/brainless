@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://csdvwte8a7f4g"]
+
+[ext_resource type="Script" uid="uid://c1iaho6twjycu" path="res://src/scenes/camera_2.0.gd" id="1_yg3ss"]
+
+[node name="Camera" type="Camera2D"]
+script = ExtResource("1_yg3ss")
+panSpeed = 5.0

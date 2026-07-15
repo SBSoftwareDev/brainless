@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0jtrhlwf3gct"]
+
+[ext_resource type="Texture2D" uid="uid://dlknyeiv5bvmo" path="res://assets/img/spritesheet/Icons_0.3.png" id="1_1hcwi"]
+[ext_resource type="Script" uid="uid://bi1boytlle7yd" path="res://src/scripts/bee_hole.gd" id="2_vru7b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vru7b"]
+atlas = ExtResource("1_1hcwi")
+region = Rect2(2, 61, 31, 31)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1hcwi"]
+radius = 1.0
+
+[node name="BeeHole" type="Sprite2D"]
+texture = SubResource("AtlasTexture_vru7b")
+script = ExtResource("2_vru7b")
+
+[node name="BeeHoleArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeeHoleArea"]
+shape = SubResource("CircleShape2D_1hcwi")
+debug_color = Color(0, 0.6, 0.69803923, 0.43137255)
+
+[connection signal="body_entered" from="BeeHoleArea" to="." method="_on_bee_hole_area_body_entered"]

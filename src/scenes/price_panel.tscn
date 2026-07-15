@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwnf6ld0o4bvt"]
+
+[ext_resource type="Script" uid="uid://bq44kgf2xa1jg" path="res://src/scripts/price_panel.gd" id="1_6tv45"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_214sn"]
+bg_color = Color(0.18000486, 0.1800049, 0.1800048, 0.6745098)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="PricePanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_6tv45")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_right = 121.0
+offset_bottom = 24.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_214sn")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer"]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "Price: 10000 [img]res://assets/img/ui/nectar.png[/img]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
