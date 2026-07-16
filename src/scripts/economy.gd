@@ -1,10 +1,10 @@
 extends Node
 
-var nectar :int = 1000
+var nectar :int = 1
 var bees :int = 0
 
 var cell_price = 4
-var price_multiplier :float = 3
+var price_multiplier :float = 1.25
 var cells_purchased :int = 0
 
 var cell_cooldown_price :int = 5
@@ -34,19 +34,19 @@ func getBeeAmount() -> int:
 	return bees
 	
 func getCellPrice() -> int:
-	return ceil(cell_price + (cells_purchased * price_multiplier))
+	return ceil(cell_price * price_multiplier)
 	
 func getCellCooldownPrice() -> int:
-	return ceil(cell_cooldown_price + (cell_cooldown_rate_purchases * price_multiplier))
+	return ceil(cell_cooldown_price * price_multiplier)
 	
 func getCollectionPrice() -> int:
-	return ceil(collection_price + (collection_rate_purchases * price_multiplier))
+	return ceil(collection_price * price_multiplier)
 	
 func getCollectiblePrice() -> int:
-	return ceil(speed_price + (speed_upgrade_purchases * price_multiplier))
+	return ceil(speed_price * price_multiplier)
 	
 func getMegaUpgradePrice() -> int:
-	return ceil(mega_upgrade_price + (mega_upgrade_purchases * price_multiplier)) 
+	return mega_upgrade_price
 
 func buyCell() -> bool:
 	var price :int = getCellPrice()
@@ -54,6 +54,7 @@ func buyCell() -> bool:
 		nectar -= price
 		cells_purchased += 1
 		bees += 1
+		cell_price = price
 		return true
 	else:
 		return false
@@ -62,6 +63,7 @@ func buyCellCooldownUpgrade() -> bool:
 	var price :int = getCellCooldownPrice()
 	if nectar >= price:
 		nectar -= price
+		cell_cooldown_price = price
 		cell_cooldown_rate_purchases += 1
 		return true
 	else:
@@ -71,6 +73,7 @@ func buyCollectionUpgrade() -> bool:
 	var price :int = getCollectionPrice()
 	if nectar >= price:
 		nectar -= price
+		collection_price = price
 		collection_rate_purchases += 1
 		return true
 	else:
@@ -80,6 +83,7 @@ func buySpeedUpgrade() -> bool:
 	var price :int = getCollectiblePrice()
 	if nectar >= price:
 		nectar -= price
+		speed_price = price
 		speed_upgrade_purchases += 1
 		return true
 	else:
@@ -89,6 +93,7 @@ func buySpeedUpgrade() -> bool:
 func buyMegaUpgrade() -> bool:
 	var price :int = getMegaUpgradePrice()
 	if nectar >= price:
+		mega_upgrade_price = price
 		nectar -= price
 		mega_upgrade_purchases += 1
 		return true

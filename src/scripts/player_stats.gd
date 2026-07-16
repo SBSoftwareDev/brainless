@@ -21,9 +21,9 @@ func get_total_wait_time() -> float: return cell_cooldown_base_time * cell_coold
 
 func _ready() -> void:
 	collectible_cooldown_wait_time = collectible_cooldown_base_time
-
-func upgrade_collection_rate() -> String:
-	collection_rate *= 2
+	
+func upgrade_collection_rate(multiplier :float = 1.25) -> String:
+	collection_rate *= multiplier
 	return str("%0.2f" % collection_rate)
 	
 func upgrade_cell_cooldown_rate() -> String:

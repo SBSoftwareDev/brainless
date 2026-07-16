@@ -2,6 +2,8 @@ extends Camera2D
  
 @export var zoomSpeed : float = 10;
 @export var panSpeed : float = 10;
+@onready var bee_hole: Sprite2D = %BeeHole
+@onready var panel: Panel = $"../../UILayer/UIRoot/Panel"
 
 var zoomTarget 
 
@@ -11,7 +13,7 @@ var isDragging : bool = false;
 
 func _ready():
 	zoomTarget = zoom
-	pass
+	global_position = Vector2(bee_hole.global_position.x + (panel.size.x / 2), bee_hole.global_position.y)
 	
 
 func _process(delta):

@@ -67,8 +67,12 @@ func _on_cell_upgrade_button_pressed() -> void:
 func _on_rate_upgrade_button_pressed() -> void:
 	var bought = economy.buyCollectionUpgrade()
 	if bought: 
-		rate_upgrade_label.text = str("Workers collect [color=#E47DFF]", int(player_stats.upgrade_collection_rate()), "[/color] nectar")
-		rate_cost_label.text = str("Cost: ", economy.getCollectionPrice(), " [img width=10%]res://assets/img/ui/nectar.png[/img]")
+		if economy.collection_rate_purchases < 3:
+			rate_upgrade_label.text = str("Workers collect [color=#E47DFF]", int(player_stats.upgrade_collection_rate(2)), "[/color] nectar")
+			rate_cost_label.text = str("Cost: ", economy.getCollectionPrice(), " [img width=10%]res://assets/img/ui/nectar.png[/img]")
+		else:
+			rate_upgrade_label.text = str("Workers collect [color=#E47DFF]", int(player_stats.upgrade_collection_rate()), "[/color] nectar")
+			rate_cost_label.text = str("Cost: ", economy.getCollectionPrice(), " [img width=10%]res://assets/img/ui/nectar.png[/img]")
 		#rate_upgrade_button.text = str("Price: ", economy.getCollectionPrice())
 
 
@@ -83,7 +87,7 @@ func _on_speed_upgrade_button_pressed() -> void:
 func _on_hive_bridge_pressed() -> void:
 	var bought = economy.buyMegaUpgrade()
 	if bought: 
-		rate_upgrade_label.text = str("Workers collect [color=#E47DFF]", int(player_stats.upgrade_collection_rate()), "[/color] nectar")
+		rate_upgrade_label.text = str("Workers collect [color=#E47DFF]", int(player_stats.upgrade_collection_rate(2)), "[/color] nectar")
 		rate_cost_label.text = str("Cost: ", economy.getCollectionPrice(), " [img width=10%]res://assets/img/ui/nectar.png[/img]")
 		var splash_scene = load("res://src/scenes/SplashFade.tscn").instantiate()
 		get_parent().add_child(splash_scene)
@@ -94,7 +98,7 @@ func _on_hive_bridge_pressed() -> void:
 func _on_royal_jelly_pressed() -> void:
 	var bought = economy.buyMegaUpgrade()
 	if bought: 
-		rate_upgrade_label.text = str("Workers collect [color=#E47DFF]", int(player_stats.upgrade_collection_rate()), "[/color] nectar")
+		rate_upgrade_label.text = str("Workers collect [color=#E47DFF]", int(player_stats.upgrade_collection_rate(2)), "[/color] nectar")
 		rate_cost_label.text = str("Cost: ", economy.getCollectionPrice(), " [img width=10%]res://assets/img/ui/nectar.png[/img]")
 		var splash_scene = load("res://src/scenes/SplashFade.tscn").instantiate()
 		get_parent().add_child(splash_scene)
@@ -105,7 +109,7 @@ func _on_royal_jelly_pressed() -> void:
 func _on_mega_flora_pressed() -> void:
 	var bought = economy.buyMegaUpgrade()
 	if bought: 
-		rate_upgrade_label.text = str("Workers collect [color=#E47DFF]", int(player_stats.upgrade_collection_rate()), "[/color] nectar")
+		rate_upgrade_label.text = str("Workers collect [color=#E47DFF]", int(player_stats.upgrade_collection_rate(2)), "[/color] nectar")
 		rate_cost_label.text = str("Cost: ", economy.getCollectionPrice(), " [img width=10%]res://assets/img/ui/nectar.png[/img]")
 		var splash_scene = load("res://src/scenes/SplashFade.tscn").instantiate()
 		get_parent().add_child(splash_scene)
@@ -116,7 +120,7 @@ func _on_mega_flora_pressed() -> void:
 func _on_triple_cells_pressed() -> void:
 	var bought = economy.buyMegaUpgrade()
 	if bought: 
-		rate_upgrade_label.text = str("Workers collect [color=#E47DFF]", int(player_stats.upgrade_collection_rate()), "[/color] nectar")
+		rate_upgrade_label.text = str("Workers collect [color=#E47DFF]", int(player_stats.upgrade_collection_rate(2)), "[/color] nectar")
 		rate_cost_label.text = str("Cost: ", economy.getCollectionPrice(), " [img width=10%]res://assets/img/ui/nectar.png[/img]")
 		var splash_scene = load("res://src/scenes/SplashFade.tscn").instantiate()
 		get_parent().add_child(splash_scene)
