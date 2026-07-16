@@ -15,10 +15,10 @@ extends Control
 @onready var speed_cost_label: RichTextLabel = $Panel/VBoxContainer/SpeedUpgradePanel/Panel/MarginContainer/HBox2/VBoxContainer/CostLabel
 @onready var cell_cost_label: RichTextLabel = $Panel/VBoxContainer/CellCooldownUpgradePanel3/Panel/MarginContainer/HBox2/VBoxContainer/CostLabel
 
-@onready var hive_button: Button = $Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Button
-@onready var royal_jelly_button: Button = $Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Button2
-@onready var mega_flora_button: Button = $Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Button
-@onready var triple_cells_button: Button = $Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Button2
+@onready var hive_button: Button = $"Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Hive Bridge Button"
+@onready var royal_jelly_button: Button = $"Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Royal Jelly Button"
+@onready var mega_flora_button: Button = $"Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Mega Flora Button"
+@onready var triple_cells_button: Button = $"Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Triple Cells Button"
 
 @onready var help_menu: Control = $"../HelpMenu"
 
@@ -126,3 +126,77 @@ func _on_triple_cells_pressed() -> void:
 
 func _on_help_button_pressed() -> void:
 	help_menu.visible = true
+
+
+func _on_rate_upgrade_button_mouse_entered() -> void:
+	price_panel.set_price(economy.getCollectionPrice())
+	price_panel.visible = true
+
+
+func _on_rate_upgrade_button_mouse_exited() -> void:
+	price_panel.visible = false
+	price_panel.upgrades_panel = false
+
+
+func _on_speed_upgrade_button_mouse_entered() -> void:
+	price_panel.set_price(economy.getCollectiblePrice())
+	price_panel.visible = true
+
+
+func _on_speed_upgrade_button_mouse_exited() -> void:
+	price_panel.visible = false
+	price_panel.upgrades_panel = false
+
+
+func _on_cell_upgrade_button_mouse_entered() -> void:
+	price_panel.set_price(economy.getCellCooldownPrice())
+	price_panel.visible = true
+
+
+func _on_cell_upgrade_button_mouse_exited() -> void:
+	price_panel.visible = false
+	price_panel.upgrades_panel = false
+
+
+func _on_hive_bridge_button_mouse_entered() -> void:
+	if !hive_button.disabled:
+		price_panel.set_price(economy.getMegaUpgradePrice())
+		price_panel.visible = true
+
+
+func _on_hive_bridge_button_mouse_exited() -> void:
+	price_panel.visible = false
+	price_panel.upgrades_panel = false
+
+
+func _on_royal_jelly_button_mouse_entered() -> void:
+	if !royal_jelly_button.disabled:
+		price_panel.set_price(economy.getMegaUpgradePrice())
+		price_panel.visible = true
+
+
+func _on_royal_jelly_button_mouse_exited() -> void:
+	price_panel.visible = false
+	price_panel.upgrades_panel = false
+
+
+func _on_mega_flora_button_mouse_entered() -> void:
+	if !mega_flora_button.disabled:
+		price_panel.set_price(economy.getMegaUpgradePrice())
+		price_panel.visible = true
+
+
+func _on_mega_flora_button_mouse_exited() -> void:
+	price_panel.visible = false
+	price_panel.upgrades_panel = false
+
+
+func _on_triple_cells_button_mouse_entered() -> void:
+	if !triple_cells_button.disabled:
+		price_panel.set_price(economy.getMegaUpgradePrice())
+		price_panel.visible = true
+
+
+func _on_triple_cells_button_mouse_exited() -> void:
+	price_panel.visible = false
+	price_panel.upgrades_panel = false

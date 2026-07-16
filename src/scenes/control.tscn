@@ -363,14 +363,14 @@ layout_mode = 2
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="Hive Bridge Button" type="Button" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(67.51, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_0rqde")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Button"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Hive Bridge Button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -379,24 +379,24 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Button/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Hive Bridge Button/VBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("3_210pg")
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Button/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Hive Bridge Button/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.7294118, 1)
 text = "Hive Bridge"
 horizontal_alignment = 1
 
-[node name="Button2" type="Button" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="Royal Jelly Button" type="Button" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_dmqt0")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Button2"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Royal Jelly Button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -405,13 +405,13 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Button2/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Royal Jelly Button/VBoxContainer2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_vertical = 3
 texture = SubResource("AtlasTexture_d3vkj")
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Button2/VBoxContainer2"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Royal Jelly Button/VBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.7294118, 1)
 text = "Royal Jelly"
@@ -422,12 +422,12 @@ layout_mode = 2
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3"]
+[node name="Mega Flora Button" type="Button" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_0rqde")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Button"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Mega Flora Button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -435,24 +435,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Button/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Mega Flora Button/VBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 texture = SubResource("AtlasTexture_0rqde")
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Button/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Mega Flora Button/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.7294118, 1)
 text = "Mega Flora"
 
-[node name="Button2" type="Button" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3"]
+[node name="Triple Cells Button" type="Button" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_0rqde")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Button2"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Triple Cells Button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -460,13 +460,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Button2/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Triple Cells Button/VBoxContainer2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_vertical = 3
 texture = SubResource("AtlasTexture_dmqt0")
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Button2/VBoxContainer2"]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Triple Cells Button/VBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.7294118, 1)
 text = "Triple Cells"
@@ -474,11 +474,25 @@ text = "Triple Cells"
 [node name="PricePanel" parent="." instance=ExtResource("3_n54qu")]
 layout_mode = 1
 
+[connection signal="mouse_entered" from="Panel/VBoxContainer/RateUpgradePanel/Panel/MarginContainer/HBox/RateUpgradeButton" to="." method="_on_rate_upgrade_button_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/VBoxContainer/RateUpgradePanel/Panel/MarginContainer/HBox/RateUpgradeButton" to="." method="_on_rate_upgrade_button_mouse_exited"]
 [connection signal="pressed" from="Panel/VBoxContainer/RateUpgradePanel/Panel/MarginContainer/HBox/RateUpgradeButton" to="." method="_on_rate_upgrade_button_pressed"]
+[connection signal="mouse_entered" from="Panel/VBoxContainer/SpeedUpgradePanel/Panel/MarginContainer/HBox2/SpeedUpgradeButton" to="." method="_on_speed_upgrade_button_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/VBoxContainer/SpeedUpgradePanel/Panel/MarginContainer/HBox2/SpeedUpgradeButton" to="." method="_on_speed_upgrade_button_mouse_exited"]
 [connection signal="pressed" from="Panel/VBoxContainer/SpeedUpgradePanel/Panel/MarginContainer/HBox2/SpeedUpgradeButton" to="." method="_on_speed_upgrade_button_pressed"]
+[connection signal="mouse_entered" from="Panel/VBoxContainer/CellCooldownUpgradePanel3/Panel/MarginContainer/HBox2/CellUpgradeButton" to="." method="_on_cell_upgrade_button_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/VBoxContainer/CellCooldownUpgradePanel3/Panel/MarginContainer/HBox2/CellUpgradeButton" to="." method="_on_cell_upgrade_button_mouse_exited"]
 [connection signal="pressed" from="Panel/VBoxContainer/CellCooldownUpgradePanel3/Panel/MarginContainer/HBox2/CellUpgradeButton" to="." method="_on_cell_upgrade_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/MarginContainer3/HelpButton" to="." method="_on_help_button_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Button" to="." method="_on_hive_bridge_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Button2" to="." method="_on_royal_jelly_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Button" to="." method="_on_mega_flora_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Button2" to="." method="_on_triple_cells_pressed"]
+[connection signal="mouse_entered" from="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Hive Bridge Button" to="." method="_on_hive_bridge_button_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Hive Bridge Button" to="." method="_on_hive_bridge_button_mouse_exited"]
+[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Hive Bridge Button" to="." method="_on_hive_bridge_pressed"]
+[connection signal="mouse_entered" from="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Royal Jelly Button" to="." method="_on_royal_jelly_button_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Royal Jelly Button" to="." method="_on_royal_jelly_button_mouse_exited"]
+[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/Royal Jelly Button" to="." method="_on_royal_jelly_pressed"]
+[connection signal="mouse_entered" from="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Mega Flora Button" to="." method="_on_mega_flora_button_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Mega Flora Button" to="." method="_on_mega_flora_button_mouse_exited"]
+[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Mega Flora Button" to="." method="_on_mega_flora_pressed"]
+[connection signal="mouse_entered" from="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Triple Cells Button" to="." method="_on_triple_cells_button_mouse_entered"]
+[connection signal="mouse_exited" from="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Triple Cells Button" to="." method="_on_triple_cells_button_mouse_exited"]
+[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Triple Cells Button" to="." method="_on_triple_cells_pressed"]
