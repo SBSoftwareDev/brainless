@@ -1,7 +1,7 @@
 extends Camera2D
  
 @export var zoomSpeed : float = 10;
-@export var panSpeed : float = 10;
+@export var panSpeed : float = 3;
 @onready var bee_hole: Sprite2D = %BeeHole
 @onready var panel: Panel = $"../../UILayer/UIRoot/Panel"
 
