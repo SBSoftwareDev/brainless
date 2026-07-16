@@ -20,7 +20,7 @@ extends Control
 @onready var mega_flora_button: Button = $Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Button
 @onready var triple_cells_button: Button = $Panel/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer3/Button2
 
-
+@onready var help_menu: Control = $"../HelpMenu"
 
 
 
@@ -122,3 +122,7 @@ func _on_triple_cells_pressed() -> void:
 		get_parent().add_child(splash_scene)
 		triple_cells_button.disabled = true
 		triple_cells_button.focus_mode = Control.FOCUS_NONE
+
+
+func _on_help_button_pressed() -> void:
+	help_menu.visible = true

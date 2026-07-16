@@ -1,14 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://4vqtyrbxi32s"]
+[gd_scene load_steps=12 format=3 uid="uid://4vqtyrbxi32s"]
 
 [ext_resource type="Script" uid="uid://b5qquvw15kre8" path="res://src/scripts/economy.gd" id="1_3rtjt"]
 [ext_resource type="Script" uid="uid://o5dwssmffn71" path="res://src/scripts/player_stats.gd" id="2_lcg6w"]
 [ext_resource type="PackedScene" uid="uid://cuxp5sg65mf58" path="res://src/scenes/background.tscn" id="3_flib5"]
-[ext_resource type="PackedScene" uid="uid://n7opqk28yvud" path="res://src/scenes/camera_Complete.tscn" id="3_h2mn8"]
+[ext_resource type="PackedScene" path="res://src/scenes/camera_Complete.tscn" id="3_h2mn8"]
 [ext_resource type="PackedScene" uid="uid://b0jtrhlwf3gct" path="res://src/scenes/bee_hole.tscn" id="4_6e0h8"]
 [ext_resource type="PackedScene" uid="uid://0lht6v7xpbwe" path="res://src/scenes/cell_group.tscn" id="4_gh3at"]
 [ext_resource type="Script" uid="uid://4ol7o4jbvssw" path="res://src/scripts/level.gd" id="4_h2mn8"]
 [ext_resource type="PackedScene" uid="uid://by3idyv3mn488" path="res://src/scenes/control.tscn" id="4_yufto"]
 [ext_resource type="Script" uid="uid://bujvj7kk26sdv" path="res://src/scripts/debug_root.gd" id="7_gh3at"]
+[ext_resource type="PackedScene" uid="uid://3o5hlw4hle4w" path="res://src/scenes/help_menu.tscn" id="8_6e0h8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flib5"]
 bg_color = Color(0.41568628, 0.6431373, 0.6745098, 0.6901961)
@@ -70,6 +71,11 @@ process_mode = 1
 
 [node name="UIRoot" parent="UILayer" instance=ExtResource("4_yufto")]
 unique_name_in_owner = true
+
+[node name="HelpMenu" parent="UILayer" instance=ExtResource("8_6e0h8")]
+visible = false
+z_index = 5
+mouse_filter = 0
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 process_mode = 2
