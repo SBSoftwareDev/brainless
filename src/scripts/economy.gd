@@ -1,6 +1,6 @@
 extends Node
 
-var nectar :int = 1
+var nectar :int = 20
 var bees :int = 0
 
 var cell_price = 4
