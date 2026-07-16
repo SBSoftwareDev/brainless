@@ -204,3 +204,19 @@ func _on_triple_cells_button_mouse_entered() -> void:
 func _on_triple_cells_button_mouse_exited() -> void:
 	price_panel.visible = false
 	price_panel.upgrades_panel = false
+
+
+func _on_cell_area_mouse_exited() -> void:
+	price_panel.upgrades_panel = true
+
+
+func _on_cell_area_mouse_entered() -> void:
+	price_panel.upgrades_panel = false
+
+
+func _on_upgrade_area_mouse_entered() -> void:
+	price_panel.upgrades_panel = true
+
+
+func _on_upgrade_area_mouse_exited() -> void:
+	price_panel.upgrades_panel = false

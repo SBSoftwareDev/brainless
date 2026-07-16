@@ -18,6 +18,8 @@ config/icon="uid://b23jone4rbjma"
 [display]
 
 window/size/always_on_top=true
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
 
 [gui]
 

@@ -15,7 +15,7 @@ func _ready() -> void:
 	price_panel.visible = false
 	
 func _process(_delta: float) -> void:
-	process_input()
+	pass
 
 func _on_area_2d_mouse_entered() -> void:
 	#empty_cell.texture = load("res://assets/img/cell/cell_sprite_locked_highlighted.png")
@@ -29,9 +29,7 @@ func _on_area_2d_mouse_exited() -> void:
 	price_panel.visible = false
 	mouseInside = false
 	
-func process_input() -> void:
-	if mouseInside && Input.is_action_just_pressed("Select"):
-		replaceSelf()
+
 
 func replaceSelf() -> void:
 	var bought :bool = economy.buyCell()
@@ -46,3 +44,8 @@ func replaceSelf() -> void:
 			get_tree().change_scene_to_file("res://src/scenes/end.tscn")
 	else:
 		return
+
+
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if mouseInside && event.is_action_released("Select"):
+		replaceSelf()
