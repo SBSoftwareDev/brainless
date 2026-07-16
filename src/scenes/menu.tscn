@@ -125,4 +125,18 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_nr8cr")
 theme_override_styles/focus = SubResource("StyleBoxFlat_echhp")
 text = "Play"
 
+[node name="MarginContainer2" type="MarginContainer" parent="Control/TextureRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_constants/margin_left = 15
+
+[node name="Label" type="Label" parent="Control/TextureRect/MarginContainer2"]
+layout_mode = 2
+text = "Created by Peach and ThreeSheets"
+
 [connection signal="pressed" from="Control/TextureRect/MarginContainer/Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]

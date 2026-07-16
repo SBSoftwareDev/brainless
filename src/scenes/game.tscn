@@ -71,11 +71,11 @@ process_mode = 1
 
 [node name="UIRoot" parent="UILayer" instance=ExtResource("4_yufto")]
 unique_name_in_owner = true
+mouse_filter = 1
 
 [node name="HelpMenu" parent="UILayer" instance=ExtResource("8_6e0h8")]
 visible = false
 z_index = 5
-mouse_filter = 0
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 process_mode = 2
