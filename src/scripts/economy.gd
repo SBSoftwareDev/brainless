@@ -1,6 +1,6 @@
 extends Node
 
-var nectar :int = 1000
+var nectar :int = 1
 var bees :int = 0
 
 var cell_price = 4
@@ -46,7 +46,10 @@ func getCollectiblePrice() -> int:
 	return ceil(speed_price * price_multiplier)
 	
 func getMegaUpgradePrice() -> int:
-	return mega_upgrade_price
+	if mega_upgrade_purchases == 0:
+		return mega_upgrade_price
+	else:
+		return mega_upgrade_price * pow(mega_upgrade_purchases + 1, 2.0)
 
 func buyCell() -> bool:
 	var price :int = getCellPrice()
